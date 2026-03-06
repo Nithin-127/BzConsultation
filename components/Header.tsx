@@ -143,7 +143,8 @@ after:bg-current"
 
           {/* Mobile Button */}
           <button className="mt-6 px-6 py-3 border border-white bg-black text-white hover:bg-white hover:text-black transition duration-300">
-            Schedule a Consultation
+            <Link href={'/consult'}> Schedule a Consultation</Link>
+           
           </button>
         </div>
       </div>
