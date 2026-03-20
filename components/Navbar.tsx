@@ -28,16 +28,17 @@ import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import Link from "next/link";
+import { menuItems } from "@/lib/menu";
 
 const Navbar = () => {
   const menuItems = [
-    "Home",
-    "About Us",
-    "Services",
-    "Success Stories",
-    "Blogs",
-    "Careers",
-    "Contact Us",
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Success Stories", href: "/success-stories" },
+    { label: "Blogs", href: "/blogs" },
+    { label: "Careers", href: "/careers" },
+    { label: "Contact Us", href: "/contact" },
   ];
 
   return (
@@ -59,9 +60,9 @@ const Navbar = () => {
           <div className=" flex items-center justify-center">
             <nav className="hidden lg:flex items-center gap-10 text-[15px] font-medium mr-[25px]">
               {menuItems.map((item, index) => (
-                <a
+                <Link
                   key={index}
-                  href="#"
+                  href={item.href}
                   className={` text-white font-[14px] flex items-center gap-2 hover:text-primary transition `}
                 >
                   <div
@@ -77,9 +78,9 @@ after:h-[5px]
 after:rounded-full
 after:bg-current"
                   >
-                    {item}
+                    {item.label}
                   </div>
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -148,16 +149,17 @@ after:bg-current"
 
                   <div className="flex flex-col gap-4 mt-6">
                     {menuItems.map((item, i) => (
-                      <div
+                      <Link
+                        href={item.href}
                         key={i}
                         className="w-full py-1.5 text-white border-b border-gray-700 font-light text-[12px] flex justify-between items-center"
                       >
-                        <p>{item}</p>
+                        {item.label}
 
                         <button className="p-2 bg-primary">
                           <FaChevronRight />
                         </button>
-                      </div>
+                      </Link>
                     ))}
                   </div>
 

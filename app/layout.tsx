@@ -12,6 +12,9 @@ import PageLoader from "@/components/PageLoader";
 import Navbar from "@/components/Navbar";
 import WhatsAppBtn from "@/components/WhatsAppBtn";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
+import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
+import "aos/dist/aos.css";
+import AnimationProvider from "@/components/AnimationProvider";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -40,18 +43,20 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ModeToggle />
-          <PageLoader>
-            <Navbar />
+          <AnimationProvider>
+            <PageLoader>
+              <Navbar />
 
-            <CustomCursor />
+              <CustomCursor />
 
-            <WhatsAppBtn />
-            {children}
-            <ProgressBar />
-            <ContactLocations />
+              <WhatsAppBtn />
+              {children}
+              <ProgressBar />
+              <ContactLocations />
 
-            <Footer />
-          </PageLoader>
+              <Footer />
+            </PageLoader>
+          </AnimationProvider>
         </ThemeProvider>
       </body>
     </html>

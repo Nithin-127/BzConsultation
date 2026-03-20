@@ -59,29 +59,30 @@ const ConsultationForm = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
           {/* col-1 */}
           <div>
-            <div className="mt-8">
-              <label className="font-medium">First Name</label>
-              <Input
-                name="firstName"
-                type="text"
-                placeholder="First Name"
-                className="bg-gray-200  font-medium px-5 py-5 w-full mt-4"
-              />
+           <div className="mt-8">
+  <label className="font-medium">First Name</label>
 
-              {state?.errors?.firstName && (
-                <p className="text-red-500 text-sm mt-2">
-                  {state.errors.firstName}
-                </p>
-              )}
-            </div>
+  <Input
+    name="firstName"
+    type="text"
+    placeholder="First Name"
+    className="bg-[#EAEAEA] dark:bg-[#101010] font-medium px-5 py-5 w-full mt-4"
+  />
 
+  {state?.errors?.firstName && (
+    <p className="text-red-500 text-sm mt-2">
+      {state.errors.firstName}
+    </p>
+  )}
+</div>
             <div className="mt-8">
               <label className="font-medium">Last Name</label>
               <Input
+            
                 name="lastName"
                 type="text"
                 placeholder="Last Name"
-                className="bg-gray-200 px-5 py-5   font-medium w-full mt-4"
+                className="bg-[#EAEAEA] px-5 py-5 dark:bg-[#101010]   font-medium w-full mt-4"
               />
 
               {state?.errors?.lastName && (
@@ -94,10 +95,11 @@ const ConsultationForm = () => {
             <div className="mt-8">
               <label className="font-medium">Email Address</label>
               <Input
+             
                 name="email"
                 type="email"
                 placeholder="Email Address"
-                className="bg-gray-200   font-medium px-5 py-5 w-full mt-4"
+                className=" bg-[#EAEAEA]  font-medium px-5 py-5 w-full mt-4"
               />
               {state?.errors?.email && (
                 <p className="text-red-500 text-sm mt-2">
@@ -109,10 +111,11 @@ const ConsultationForm = () => {
             <div className="mt-8">
               <label className="font-medium">Phone Number</label>
               <Input
+            
                 name="phone"
                 type="tel"
                 placeholder="Phone Number"
-                className="bg-gray-200   font-medium px-5 py-5 w-full mt-4"
+                className="bg-[#eaeaea]  font-medium px-5 py-5 w-full mt-4"
               />
               {state?.errors?.phone && (
                 <p className="text-red-500 text-sm mt-2">
@@ -127,9 +130,10 @@ const ConsultationForm = () => {
             <div className="mt-8">
               <label className="font-medium">Select Date</label>
               <Input
+
                 name="date"
                 type="date"
-                className="bg-gray-200 px-5 py-5   font-medium w-full mt-4"
+                className=" px-5 py-5 bg-[#eaeaea]  font-medium w-full mt-4"
               />
 
               {state?.errors?.date && (
@@ -140,7 +144,7 @@ const ConsultationForm = () => {
             <div className="mt-8">
               <label className="font-medium">Select Time Zone</label>
               <Select name="timeZone">
-                <SelectTrigger className="w-full mt-4 bg-gray-200 px-5 py-6">
+                <SelectTrigger  className="w-full mt-4 bg-[#eaeaea] px-5 py-6">
                   <SelectValue
                     placeholder="Select time"
                     className="  font-medium"
@@ -286,7 +290,7 @@ const ConsultationForm = () => {
                     key={time}
                     className={`block p-3 border-black dark:border-white border md:w-[300px] w-[200px] text-center cursor-pointer 
       hover:bg-gray-200 dark:hover:text-black
-      ${time === "Select Time" ? "bg-gray-200 text-black cursor-not-allowed" : ""}`}
+      ${time === "Select Time" ? "bg-[#EAEAEA] text-black cursor-not-allowed" : ""}`}
                   >
                     <Input
                       type="radio"

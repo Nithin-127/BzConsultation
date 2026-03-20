@@ -2,6 +2,8 @@
 import { Linkedin, Facebook, Instagram } from 'lucide-react';
 import Image from 'next/image';
 import { FaYoutube } from 'react-icons/fa';
+import "animate.css"
+import "aos"
 
 export default function Footer() {
   return (
@@ -37,7 +39,7 @@ export default function Footer() {
               {/* Logo & Socials */}
               <div className="flex flex-col justify-between">
                 {/* Logo Group */}
-                <div className="flex w-[280px] items-center">
+                <div className="flex w-[280px] items-center " data-aos="fade-up">
                   <Image
                     src="/Logo.png"
                     alt="Bz Analytics Logo"
