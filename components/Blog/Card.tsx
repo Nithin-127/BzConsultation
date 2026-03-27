@@ -70,7 +70,7 @@ const Blogcard = () => {
                 <span>{blog.category}</span>
               </div>
 
-              <h6 className="text-black font-semibold text-[18px] leading-[22px] mb-5 tracking-[0.5px] line-clamp-2">
+              <h6 className="text-black font-semibold text-[18px] leading-[22px] mb-5 tracking-[0.5px] line-clamp-">
                 {blog.title}
               </h6>
 
