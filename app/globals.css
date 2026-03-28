@@ -260,3 +260,29 @@ Input {
 .dark .input {
   background-color: #101010; 
 }
+
+/* Keep Navbar and Footer theme static while page content switches themes */
+.theme-fixed-nav,
+.theme-fixed-footer {
+  background-color: #101010 !important;
+  color: #ffffff !important;
+}
+
+.theme-fixed-nav a,
+.theme-fixed-footer a,
+.theme-fixed-nav button,
+.theme-fixed-footer button,
+.theme-fixed-nav h1,
+.theme-fixed-nav h2,
+.theme-fixed-nav h3,
+.theme-fixed-nav h4,
+.theme-fixed-nav h5,
+.theme-fixed-nav p,
+.theme-fixed-footer h1,
+.theme-fixed-footer h2,
+.theme-fixed-footer h3,
+.theme-fixed-footer h4,
+.theme-fixed-footer h5,
+.theme-fixed-footer p {
+  color: #ffffff;
+}

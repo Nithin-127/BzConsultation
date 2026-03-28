@@ -7,7 +7,7 @@ import "aos";
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#101010] pt-24 pb-40 font-sans text-white">
+    <footer className="theme-fixed-footer relative overflow-hidden bg-[#101010] pt-24 pb-40 font-sans text-white">
       {/* Background Diagonal Lines Pattern */}
       <div
         className=" absolute inset-0 z-0 
