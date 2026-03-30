@@ -53,7 +53,7 @@ const SuccessStories = () => {
                 key={index}
                 onClick={() => handleCardClick(index)}
                 className={`group relative mb-7 bg-gray-100 dark:bg-[#1E1E1E] rounded-[10px] overflow-hidden 
-                           w-full max-w-[400px] md:max-w-full min-h-[400px] md:min-h-[450px] flex flex-col cursor-pointer 
+                           w-full max-w-[400px] md:max-w-full min-h-[400px] md:min-h-[450px] flex flex-col 
                            transition-all duration-300 shadow-lg hover:shadow-2xl shadow-black/10
                            ${isActive ? 'bg-white dark:bg-[#252525]' : 'hover:bg-white dark:hover:bg-[#252525]'}`}
               >
@@ -65,8 +65,8 @@ const SuccessStories = () => {
                     alt={card.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className={`object-cover transition-transform duration-700 ease-out translate-y-0 
-                               ${isActive ? '-translate-y-8' : 'group-hover:-translate-y-8'}`} 
+                    className={`object-cover transition-transform duration-400 ease-out translate-y-0 
+                               ${isActive ? '-translate-y-10' : 'group-hover:-translate-y-10'}`} 
                   />
                 </div>
 
@@ -75,7 +75,7 @@ const SuccessStories = () => {
                                 ${isActive ? '-translate-y-6' : 'group-hover:-translate-y-6'}`}>
                   
                   <div className="flex-1">
-                    <h3 className="text-black dark:text-white text-lg sm:text-[22px] font-extrabold leading-tight mb-2 md:mb-3">
+                    <h3 className="text-black dark:text-white text-lg sm:text-[27px] font-extrabold leading-tight mb-2 md:mb-3">
                       {card.title}
                     </h3>
 
@@ -89,14 +89,18 @@ const SuccessStories = () => {
                     </div>
                   </div>
 
-                  <div className="mt-4 md:mt-6">
-                    <button className="border border-black/10 dark:border-white bg-black text-white px-5 py-2.5 md:px-6 md:py-3 text-[10px] sm:text-xs 
-                                       hover:bg-white hover:text-orange-500 font-bold cursor-pointer transition-all duration-300 
-                                       uppercase tracking-wider">
-                      Know More &gt;&gt;
-                    </button>
-                  </div>
+ 
+<div className="mt-4 md:mt-6">
+  <button className="group/btn relative overflow-hidden border-2 border-black/10 dark:border-white bg-black text-white px-5 py-2.5 md:px-6 md:py-3 text-[10px] sm:text-xs font-extrabold cursor-pointer transition-all duration-300 uppercase tracking-wider hover:text-orange-500">
+    
+    <span className="absolute left-1/2 top-1/2 w-[160%] h-0 bg-white -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] transition-all duration-500 ease-in-out group-hover/btn:h-[500%] z-0"></span>
+    
+    <span className="relative z-10">
+      Know More &gt;&gt;
+    </span>
 
+  </button>
+</div>
                 </div>
                 <div className="absolute inset-x-0 bottom-0 h-4 bg-inherit z-10" />
               </div>
