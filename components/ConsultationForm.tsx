@@ -327,16 +327,34 @@ const ConsultationForm = () => {
         </div>
 
         <div className="max-w-4xl mx-auto text-center space-y-8 mt-16 px-4">
-          <Button
-            type="submit"
-            className="font-bold text-lg sm:text-base md:text-lg 
-                     px-8 sm:px-12 py-4  text-white 
-                     hover:bg-white hover:text-primary 
-                     transition-all duration-500 
-                     hover:border-2 hover:border-black"
+          <Link
+            href="/consult"
+            className="relative inline-flex items-center justify-center 
+             px-6 sm:px-8 lg:px-10 py-3 sm:py-4
+             bg-primary border  hover:border-black
+             overflow-hidden group cursor-pointer"
           >
-            Click to Schedule
-          </Button>
+            {/* Animated background */}
+            <span
+              className="absolute top-1/2 left-1/2 
+               w-[300%] h-[300%] sm:w-[400%] sm:h-[400%]
+               bg-white 
+               -translate-x-1/2 -translate-y-1/2 rotate-45
+               scale-0 group-hover:scale-100
+               transition-transform duration-500 ease-out"
+            ></span>
+
+            {/* Text */}
+            <span
+              className="relative z-10 
+               text-white group-hover:text-primary
+               transition-colors duration-300 
+               font-bold sm:font-extrabold
+               text-sm sm:text-base lg:text-[17px]"
+            >
+              Click to Schedule
+            </span>
+          </Link>
 
           <h4 className="text-xl sm:text-2xl md:text-4xl  font-bold">
             Our Team will contact you!

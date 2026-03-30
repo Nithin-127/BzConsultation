@@ -16,12 +16,35 @@ export function ModeToggle() {
   return (
     <div className="fixed bottom-6 left-2 z-50">
       <button
-       
-      
         onClick={toggleTheme}
-        className="p-2 bg-black text-white font-bold border-2 cursor-pointer border-white hover:bg-white hover:border-2 hover:border-black hover:text-primary transition-all duration-100"
+        className="
+  fixed bottom-[15px] left-[15px] z-[1000] 
+  bg-black text-white
+  text-[15px] font-extrabold
+  px-[7px] py-[5px]
+  border  border-black
+  overflow-hidden
+  transition-all duration-500
+  cursor-pointer
+  group
+  "
       >
-        Light/Dark
+        <span
+          className="
+    absolute left-1/2 top-1/2 
+    w-[150%] h-0
+    bg-white
+    -translate-x-1/2 -translate-y-1/2
+    rotate-[-25deg]
+    transition-all duration-300
+    group-hover:h-[400%]
+    -z-10
+    "
+        ></span>
+
+        <span className="relative z-10 group-hover:text-orange-500 transition-colors duration-300 ">
+          Light / Dark
+        </span>
       </button>
     </div>
   );
