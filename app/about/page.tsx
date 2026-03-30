@@ -1,17 +1,18 @@
-import AboutSection from '@/components/Aboutsection'
-import BreadcrumbWrapper from '@/components/BreadcrumbWrapper'
-import React from 'react'
+"use client";
 
-const page = () => {
+import PageHeader from "@/components/about/PageHeader";
+import AboutSection from "@/components/about/AboutSection";
+import TeamSection from "@/components/about/TeamSection";
+import TestimonialSection from "@/components/about/TestimonialSection";
+import "./about.css";
+
+export default function AboutPage() {
   return (
-    <div><section className="page-header relative consultant min-h-[50vh] sm:min-h-[40vh] md:min-h-[60vh] flex items-center">
-        <div className="absolute h-full bg-img inset-0 bg-gray-200 dark:bg-gray-900" />
-        <div className="absolute overlay hidden dark:block" />
-
-        <BreadcrumbWrapper />
-      </section>
-      <AboutSection /></div>
-  )
+    <div className="about-page page-wrapper">
+      <PageHeader />
+      <AboutSection />
+      <TeamSection />
+      <TestimonialSection />
+    </div>
+  );
 }
-
-export default page

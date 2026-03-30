@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -29,6 +31,11 @@ import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import Link from "next/link";
 import { menuItems } from "@/lib/menu";
+import Image from "next/image";
+import LanguageSelect from "./LanguageDrop";
+
+
+
 
 const Navbar = () => {
   const menuItems = [
@@ -41,8 +48,12 @@ const Navbar = () => {
     { label: "Contact Us", href: "/contact" },
   ];
 
+ 
+
+  const [openLang, setOpenLang] = useState(false);
+  
   return (
-   <nav className="w-full border-b bg-[#101010] sticky top-0 z-50">
+    <nav className="theme-fixed-nav w-full bg-[#101010] sticky top-0 z-50">
       <div className=" flex items-center justify-between px-4 py-4">
         <div className=" flex items-center justify-between w-full ">
           {/* mobile menu */}
@@ -58,12 +69,12 @@ const Navbar = () => {
 
           {/* navigation menu */}
           <div className=" flex items-center justify-center">
-            <nav className="hidden lg:flex items-center gap-10 text-[15px] font-medium mr-[25px]">
+            <nav className="hidden lg:flex items-center gap-8 text-[15px] font-medium mr-[25px]">
               {menuItems.map((item, index) => (
                 <Link
                   key={index}
                   href={item.href}
-                  className={` text-white font-[14px] flex items-center gap-2 hover:text-primary transition `}
+                  className={` text-white text-[14px] font-semibold flex items-center gap-1 hover:text-primary transition `}
                 >
                   <div
                     className="relative
@@ -85,50 +96,27 @@ after:bg-current"
             </nav>
 
             <div className="md:ms-100 sm:ms-45  lg:m-0">
-              <NavigationMenu className=" bg-black">
-                <NavigationMenuList>
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger>
-                      {" "}
-                      <img
-                        src="/En-lan.png"
-                        width={20}
-                        height={20}
-                        alt=""
-                        className="me-2"
-                      />{" "}
-                      EN
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <div className=" flex flex-col items-start justify-start gap-2 font-normal">
-                        <Button
-                          variant="ghost"
-                          className="flex w-20 items-center font-bold dark:hover:bg-primary  hover:bg-primary cursor-pointer p-3"
-                        >
-                          <img src="/ind.png" width={20} height={20} alt="" />
-                          <p className=" text-[16px] font-medium">HI</p>
-                        </Button>
-
-                        <Button
-                          variant="ghost"
-                          className="flex w-20 items-center hover:bg-primary dark:hover:bg-primary  font-bold cursor-pointer p-3 "
-                        >
-                          <img src="/uae.png" width={20} height={20} alt="" />
-                          <p className=" text-[16px] font-medium">AR</p>
-                        </Button>
-                      </div>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
+            <LanguageSelect/>
             </div>
           </div>
 
           {/* consultant btn */}
           <div className="hidden lg:block">
-            <button className="px-10 py-[15px] border border-white bg-black text-white hover:bg-white hover:text-primary transition duration-300 text-[16px] font-bold">
-              <Link href={"/consult"}> Schedule a Consultation</Link>
-            </button>
+            <Link
+              href="/consult"
+              className="hidden min-[1200px]:block bg-[#101010] relative overflow-hidden border border-white px-10 py-4 group cursor-pointer flex-shrink-0"
+            >
+              <span
+                className="absolute top-1/2 left-1/2 w-[400%] h-[400%] bg-white 
+            -translate-x-1/2 -translate-y-1/2 rotate-45 
+            scale-0 group-hover:scale-110 
+            transition-transform duration-500 ease-out"
+              ></span>
+
+              <span className="relative z-10 text-white  group-hover:text-orange-500 transition-colors duration-300 font-extrabold  text-[17px] tracking-normal">
+                Schedule a consultation
+              </span>
+            </Link>
           </div>
 
           <div className="lg:hidden">

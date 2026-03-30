@@ -126,25 +126,20 @@
   }
 }
 
-
 .consultant {
   position: relative;
   width: 100%;
 }
 
-
-
 .bg-img {
   background-image: url("/header-bg.jpg");
   position: absolute;
-  opacity: .40;
+  opacity: 0.4;
   inset: 0;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 0;
-  
-
 }
 
 .overlay {
@@ -160,36 +155,36 @@
   z-index: 1;
 }
 
-
-p {
+/* p {
   font-size: 16px;
   letter-spacing: 0.5px;
   line-height: 2rem;
+} */
 
-}
 
 
-.intro h2{
+
+.intro h2 {
   font-size: 45px;
   font-weight: 800;
   letter-spacing: 2px;
 }
 
-.mobile-menu{
+.mobile-menu {
   display: flex;
-    justify-content: space-between;
-    line-height: 30px;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 500;
-    height: 46px;
-    align-items: center;
-    transition: 500ms
+  justify-content: space-between;
+  line-height: 30px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  height: 46px;
+  align-items: center;
+  transition: 500ms;
 }
 
 /* global.css */
 Input {
-border: none;
+  border: none;
 }
 
 .bounce {
@@ -208,6 +203,37 @@ border: none;
   }
 }
 
+.p-lead {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.carousal::-webkit-scrollbar {
+  display: none;
+}
+
+.group1 {
+  animation: move 20s infinite linear;
+}
+
+
+
+
+
+
+@keyframes move {
+  from {
+    translate: 0;
+  }
+  to {
+    translate: -100%;
+  }
+}
+
+
 
 
 @media (max-width: 767px) {
@@ -216,12 +242,10 @@ border: none;
     line-height: 40px;
   }
 
-  .intro h2{
+  .intro h2 {
     font-size: 30px;
     line-height: 40px;
   }
-  
-
 }
 .input {
   @apply w-full 
@@ -239,4 +263,30 @@ border: none;
 
 .dark .input {
   background-color: #101010; 
+}
+
+/* Keep Navbar and Footer theme static while page content switches themes */
+.theme-fixed-nav,
+.theme-fixed-footer {
+  background-color: #101010 !important;
+  color: #ffffff !important;
+}
+
+.theme-fixed-nav a,
+.theme-fixed-footer a,
+.theme-fixed-nav button,
+.theme-fixed-footer button,
+.theme-fixed-nav h1,
+.theme-fixed-nav h2,
+.theme-fixed-nav h3,
+.theme-fixed-nav h4,
+.theme-fixed-nav h5,
+.theme-fixed-nav p,
+.theme-fixed-footer h1,
+.theme-fixed-footer h2,
+.theme-fixed-footer h3,
+.theme-fixed-footer h4,
+.theme-fixed-footer h5,
+.theme-fixed-footer p {
+  color: #ffffff;
 }
