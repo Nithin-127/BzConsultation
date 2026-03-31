@@ -46,13 +46,10 @@ export default function RootLayout({
           <AnimationProvider>
             <PageLoader>
               <Navbar />
-
               <CustomCursor />
-
               <WhatsAppBtn />
               {children}
               <ProgressBar />
-
               <Footer />
             </PageLoader>
           </AnimationProvider>
