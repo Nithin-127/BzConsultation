@@ -9,7 +9,7 @@ import "aos";
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#101010] pt-24 pb-40 font-sans text-white">
+    <footer className="theme-fixed-footer relative overflow-hidden bg-[#101010] pt-24 pb-40 font-sans text-white">
       {/* Background Diagonal Lines Pattern */}
       <div
         className=" absolute inset-0 z-0 
@@ -27,7 +27,11 @@ export default function Footer() {
               <p className="mb-2 text-[14px] md:text-[26px] font-normal text-white">
                 Let&apos;s start working together
               </p>
+<<<<<<< HEAD
               <h2 className="text-4xl font-bold tracking-tight md:text-[30px] lg:text-[54px] hover:text-primary transition-all duration-500 cursor-pointer">
+=======
+              <h2 className="text-4xl font-bold tracking-tight md:text-[30px] lg:text-[54px] hover:text-orange-400">
+>>>>>>> 8a932b49b1389aff8ae7da9de952a3ecf0727f3c
                 hello@bzanalytics.ai
               </h2>
             </div>

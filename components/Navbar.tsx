@@ -57,11 +57,15 @@ const Navbar = () => {
   }, []);
 
   return (
+<<<<<<< HEAD
   <nav
   className={`w-full sticky top-0 z-50 transition-all duration-300 ${
     isScrolled ? "shadow-lg bg-[#101010]" : "bg-[#101010]"
   }`}
 >
+=======
+    <nav className="theme-fixed-nav w-full bg-[#101010] sticky top-0 z-50">
+>>>>>>> 8a932b49b1389aff8ae7da9de952a3ecf0727f3c
       <div className=" flex items-center justify-between px-4 py-4">
         <div className=" flex items-center justify-between w-full ">
           {/* mobile menu */}
