@@ -22,7 +22,7 @@ const cards: CardItem[] = [
   { title: "Finance", img: "/img9.jpg", desc: "Transforming Finance: Cutting-Edge Solutions." },
 ];
 
-const SuccessStories = () => {
+const page = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   
   const handleCardClick = (index: number) => {
@@ -116,4 +116,4 @@ const SuccessStories = () => {
   );
 };
 
-export default SuccessStories;
+export default page;

@@ -53,7 +53,7 @@ const Navbar = () => {
   const [openLang, setOpenLang] = useState(false);
   
   return (
-    <nav className="w-full  bg-[#101010] sticky top-0 z-50">
+    <nav className="theme-fixed-nav w-full bg-[#101010] sticky top-0 z-50">
       <div className=" flex items-center justify-between px-4 py-4">
         <div className=" flex items-center justify-between w-full ">
           {/* mobile menu */}
