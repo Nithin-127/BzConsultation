@@ -25,7 +25,7 @@ export default function Footer() {
               <p className="mb-2 text-[14px] font-normal text-white">
                 Let&apos;s start working together
               </p>
-              <h2 className="text-4xl font-bold tracking-tight md:text-[30px] lg:text-[54px] hover:text-primary">
+              <h2 className="text-4xl font-bold tracking-tight md:text-[30px] lg:text-[54px] hover:text-orange-400">
                 hello@bzanalytics.ai
               </h2>
             </div>
