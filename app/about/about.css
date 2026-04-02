@@ -543,6 +543,7 @@
 
 .about-page .testimonial-three__track {
   display: flex;
+  align-items: flex-start;
   gap: var(--review-gap);
   width: max-content;
   transition: transform 480ms ease;
