@@ -183,9 +183,6 @@
   line-height: 2rem;
 } */
 
-
-
-
 .intro h2 {
   font-size: 45px;
   font-weight: 800;
@@ -283,6 +280,7 @@ Input {
 }
 
 .dark .input {
+  
   background-color: #101010; 
 }
 
