@@ -1,10 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
-import { Button } from "@/components/ui/button";
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
@@ -18,7 +16,7 @@ export function ModeToggle() {
       <button
         onClick={toggleTheme}
         className="
-  fixed bottom-[15px] left-[15px] z-[1000] 
+  fixed bottom-[15px] left-[15px] z-[1000] rounded-none
   bg-black text-white border-white
   text-[15px] font-extrabold hover:border-black
 py-2  px-2
