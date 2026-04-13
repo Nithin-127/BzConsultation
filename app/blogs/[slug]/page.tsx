@@ -10,6 +10,7 @@ import { FaXTwitter } from "react-icons/fa6";
 const blogsData = [
   {
     id: 1,
+     slug: "rag-transforming-ai",
     title:
       "Bridging the Gap: How RAG (Retrieval Augmented Generation) is Transforming Generative AI",
     category: "Technology & Business",
@@ -118,6 +119,7 @@ const blogsData = [
   },
   {
     id: 2,
+      slug: "virtual-try-on-digital-innovation",
     title:
       "Unlocking the Future of Fashion : The Power of Virtual Try-On and Digital Innovation",
     category: "Technology & Business",
@@ -249,6 +251,7 @@ const blogsData = [
   },
   {
     id: 3,
+      slug: "applications-of-machine-learning-in-the-fashion-industry",
     title: "Applications Of Machine Learning In The Fashion Industry",
     category: "Technology & Business",
     date: "oct 20",
@@ -381,6 +384,7 @@ const blogsData = [
   },
   {
     id: 4,
+    slug: "ai-in-ecommerce",
     title: "AI In Ecommerce",
     category: "Technology & Business",
     date: "July 08",
@@ -410,6 +414,7 @@ const blogsData = [
   },
   {
     id: 5,
+     slug: "data-analytics-intelligent-business",
     title: "Data Analytics : Intelligent Business",
     category: "Technology & Business",
     date: "Nov 18",
@@ -455,6 +460,7 @@ const blogsData = [
   },
   {
     id: 6,
+     slug: "cloud-computing-benefits-services",
     title: "Data Analytics : Intelligent Business",
     category: "Technology & Business",
     date: "May 01",
@@ -543,6 +549,7 @@ const blogsData = [
   },
   {
     id: 7,
+     slug: "transition-from-2-to-3",
     title: "Data Analytics : Intelligent Business",
     category: "Technology & Business",
     date: "July 29",
@@ -606,6 +613,7 @@ const blogsData = [
   },
   {
     id: 8,
+      slug: "unity-3d-game-development",
     title:
       "Unity 3D Game Development And How It Will Revolutionize The Metaverse",
     category: "Technology & Business",
@@ -751,6 +759,7 @@ const blogsData = [
   },
   {
     id: 9,
+    slug: "top-nodejs-frameworks",
     title: "Top 7 Node Js Frameworks That Can Drive Success To Your Business",
     category: "Technology & Business",
     date: "Dec 27",
@@ -918,10 +927,9 @@ const blogsData = [
 ];
 
 export default function BlogPage() {
-  const { id } = useParams();
+const { slug } = useParams();
 
-  const blog = blogsData.find((b) => b.id === Number(id));
-
+  const blog = blogsData.find((b) => b.slug === slug);
   if (!blog) {
     return <div className="text-white text-center py-20">Blog not found</div>;
   }
@@ -929,157 +937,123 @@ export default function BlogPage() {
   return (
     <>
   <div className="max-w-7xl mx-auto pl-3 pr-6 md:pl-24 md:pr-16 py-12">
-  <div className="flex flex-col md:flex-row gap-6 items-start">
-    
-    {/* LEFT SIDE */}
-    <div
-      className="w-full md:w-[70%] text-white
-      [&>h1]:text-[30px] [&>h1]:font-light [&>h1]:mb-[13px] [&>h1]:mt-6
-      [&>h2]:text-[20px] [&>h2]:font-bold [&>h2]:mb-[13px] [&>h2]:mt-5
-      [&>p]:text-[16px] [&>p]:leading-[1.875] [&>p]:tracking-[0.5px] [&>p]:mt-4 [&>p]:text-white
-      [&>img]:rounded-xl [&>img]:my-5 [&>img]:border [&>img]:border-white"
-    >
-      {/* TOP IMAGE */}
-      <div className="relative overflow-hidden ">
-        <img
-          src={blog.image}
-          alt="blog"
-          className="w-[700px] h-[300px] md:h-[450px] object-cover"
-        />
+      
+      <div className="flex flex-col md:flex-row gap-6 items-start">
 
-      <div className="absolute bottom-0 left-0 w-full h-[45%] backdrop-blur-sm bg-black/30"></div>
+        {/* LEFT SIDE */}
+        <div className="w-full md:w-[70%] text-white
+          [&>h1]:text-[30px] [&>h1]:font-light [&>h1]:mb-[13px] [&>h1]:mt-6
+          [&>h2]:text-[20px] [&>h2]:font-bold [&>h2]:mb-[13px] [&>h2]:mt-5
+          [&>p]:text-[16px] [&>p]:leading-[1.875] [&>p]:tracking-[0.5px] [&>p]:mt-4
+          [&>img]:rounded-xl [&>img]:my-5 [&>img]:border [&>img]:border-white"
+        >
 
-<div className="absolute bottom-2 left-4 md:left-6 right-4 md:right-6">
-       <div className="inline-flex items-center gap-2 bg-white px-1 py-2 rounded-2xl h-[30px] min-w-[350px]">
-            <span className="w-4.5 h-4.5 bg-[#4900a7] rounded-full"></span>
-            <p className="text-sm text-[#4900a7] ">
-              {blog.category}
+          {/* TOP IMAGE */}
+          <div className="relative overflow-hidden">
+            <img
+              src={blog.image}
+              alt="blog"
+              className="w-full md:w-[700px] h-[360px] sm:h-[280px] md:h-[450px] object-cover"
+            />
+
+            {/* OVERLAY */}
+            <div className="absolute bottom-0 left-0 w-full 
+              h-[85%] sm:h-[75%] md:h-[45%] 
+              bg-black/40 backdrop-blur-sm">
+            </div>
+
+            {/* CONTENT */}
+            <div className="absolute bottom-2 left-3 md:left-6 right-3 md:right-6 flex flex-col gap-1">
+
+              {/* BADGE */}
+              <div className="inline-flex items-center gap-2 bg-white px-2 py-1.5 rounded-2xl w-fit max-w-full">
+                <span className="w-4 h-4 bg-[#4900a7] rounded-full shrink-0"></span>
+                <p className="text-[10px] sm:text-sm text-[#4900a7] break-words">
+                  {blog.category}
+                </p>
+              </div>
+
+              {/* TITLE */}
+              <h2 className="text-white text-[14px] md:text-[25px] font-bold leading-5 md:leading-9 mt-2 break-words">
+                {blog.title}
+              </h2>
+
+              {/* META */}
+              <p className="text-white text-[11px] sm:text-[14px] mt-1">
+                {blog.date} • {blog.readTime}
+              </p>
+            </div>
+          </div>
+
+          {/* ✅ MOBILE ONLY - BELOW IMAGE */}
+          <div className="block md:hidden mt-4">
+            <h2 className="text-[20px] mb-4 font-semibold text-white">
+              In this article
+            </h2>
+
+            <p className="border-l-[3px] border-orange-500 pl-3 py-2 text-[#f79d0f]">
+              RAG Transforming generative AI.
             </p>
           </div>
 
-          <h2 className="text-white text-[18px] md:text-[25px] font-bold leading-6 md:leading-9 mb-2 mt-1 max-w-[600px]">
-            {blog.title}
-          </h2>
-
-          <p className="text-white text-[14px] mt-2 mb-3">
-            {blog.date} • {blog.readTime}
-          </p>
+          {/* BLOG CONTENT */}
+          {blog.content.map((item, index) => {
+            if (item.type === "h1") return <h1 key={index}>{item.text}</h1>;
+            if (item.type === "h2") return <h2 key={index}>{item.text}</h2>;
+            if (item.type === "p") return <p key={index}>{item.text}</p>;
+            if (item.type === "img") return <img key={index} src={item.src} alt="" />;
+            if (item.type === "ol" && item.items)
+              return (
+                <ul key={index} className="list-disc pl-5 mt-4 space-y-3">
+                  {item.items.map((li, i) => <li key={i}>{li}</li>)}
+                </ul>
+              );
+            return null;
+          })}
         </div>
-      </div>
 
-      {blog.content.map((item, index) => {
-        if (item.type === "h1") {
-          return <h1 key={index}>{item.text}</h1>;
-        }
+        {/* RIGHT SIDE */}
+        <div className="w-full md:w-[40%] space-y-6">
 
-        if (item.type === "h2") {
-          return <h2 key={index}>{item.text}</h2>;
-        }
+          {/* DESKTOP ONLY */}
+          <div className="hidden md:block">
+            <h2 className="text-[20px] mb-6 font-semibold text-white">
+              In this article
+            </h2>
 
-        if (item.type === "p") {
-          return <p key={index}>{item.text}</p>;
-        }
+            <p className="border-l-[3px] border-orange-500 pl-3 py-2 text-[#f79d0f]">
+              RAG Transforming generative AI.
+            </p>
+          </div>
 
-        if (item.type === "img") {
-          return <img key={index} src={item.src} alt="" />;
-        }
+        
+          <div className="hidden md:flex bg-[#f5900d] rounded-xl p-3 mt-[300px] flex-col w-[380px] items-start gap-4">
+            <p className="text-white font-semibold text-[18px]">
+              Share with your community!
+            </p>
 
-        if (item.type === "ol" && item.items) {
-          return (
-            <ul key={index} className="list-disc pl-5 mt-4 space-y-3">
-              {item.items.map((li, i) => (
-                <li key={i}>{li}</li>
+            <div className="flex gap-3">
+              {[FaFacebookF, FaXTwitter, FaLinkedinIn].map((Icon, i) => (
+                <div
+                  key={i}
+                  className="w-10 h-10 bg-white rounded-lg flex items-center justify-center"
+                >
+                  <Icon className="text-[#f5900d]" />
+                </div>
               ))}
-            </ul>
-          );
-        }
-
-        return null;
-      })}
-
-      {/* SHARE SECTION */}
-      <div
-        className="flex items-center justify-between flex-wrap gap-4"
-        style={{
-          marginTop: "24px",
-          padding: "16px 20px",
-          backgroundColor: "#f5900d",
-          width: "100%",
-          borderRadius: "14px",
-        }}
-      >
-        <p style={{ color: "white", fontWeight: "600" }}>
-          Like what you see? Share with friends
-        </p>
-
-        <div style={{ display: "flex", gap: "12px" }}>
-          {[FaFacebookF, FaXTwitter, FaLinkedinIn].map((Icon, i) => (
-            <div
-              key={i}
-              style={{
-                backgroundColor: "white",
-                width: "34px",
-                height: "34px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: "10px",
-              }}
-            >
-              <Icon style={{ color: "#f5900d" }} />
             </div>
-          ))}
+          </div>
+
         </div>
       </div>
 
-      <hr className="mt-7 border-t border-gray-300 opacity-50" />
-
-   
-    </div>
-
-    {/* RIGHT SIDE */}
-   <div className="w-full md:w-[40%] space-y-6  md:top-24">
-
-  {/* IN THIS ARTICLE */}
-  <div>
-    <h2 className="text-[20px] mb-6 font-semibold text-white">
-      In this article
-    </h2>
-
-    <p className="border-l-[3px] border-orange-500 pl-3 py-2 text-[#f79d0f]">
-      RAG Transforming generative AI.
-    </p>
-  </div>
-
-  {/* SHARE BOX */}
-<div className="bg-[#f5900d] rounded-xl p-3 mt-[300px] flex flex-col w-[380px] items-start gap-4">
-
-  {/* TEXT */}
-  <p className="text-white font-semibold text-[18px]">
-    Share with your community!
-  </p>
-
-  {/* ICONS */}
-  <div className="flex gap-3">
-    {[FaFacebookF, FaXTwitter, FaLinkedinIn].map((Icon, i) => (
-      <div
-        key={i}
-        className="w-10 h-10 bg-white rounded-lg flex items-center justify-center cursor-pointer"
-      >
-        <Icon className="text-[#f5900d] text-[14px]" />
-      </div>
-    ))}
-  </div>
-
-</div>
-</div>
-  </div>
-  {/* card */}
-     <h1 className="text-[2px] md:text-[29px] text-white font-black mt-7 ml-2">
+      {/* RELATED */}
+      <h1 className="text-[20px] md:text-[29px] text-white font-black mt-7 ml-2">
         Related Articles
       </h1>
-      <Threecard/>
-</div>
+
+      <Threecard />
+    </div>
     </>
   );
 }

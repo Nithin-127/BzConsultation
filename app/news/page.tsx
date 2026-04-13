@@ -1,6 +1,8 @@
 import React from 'react'
 import BreadcrumbWrapper from '@/components/BreadcrumbWrapper'
 import Slide from '@/components/NewsLetter/Slide'
+import Button from '@/components/NewsLetter/Button'
+import Newscard from '@/components/NewsLetter/Card'
 
 const page = () => {
   return (
@@ -52,7 +54,31 @@ const page = () => {
     <br />
     features, company milestones, partnerships, and industry insights.
   </p>
-<Slide/>
+        
+        {/* slider */}
+         <Slide/>
+
+        {/* categories */}
+        <div className="">
+          <h1
+            className="
+    text-[36px]
+    font-semibold
+    leading-[43.2px]
+    tracking-[0.5px]
+    
+    mb-[8px]
+    mt-[20px]
+  "
+          >
+            Categories
+          </h1>
+          {/* 5 button */}
+          <Button/>
+          {/* card */}
+          <Newscard/>
+        </div>
+
 </div>
     </>
   )
