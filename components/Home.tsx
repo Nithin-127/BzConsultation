@@ -6,6 +6,11 @@ import { RxDotFilled } from "react-icons/rx";
 import Marquee from "react-fast-marquee";
 import Link from "next/link";
 import { FiArrowDownRight } from "react-icons/fi";
+import { IoSettings } from "react-icons/io5";
+import { BiCodeBlock } from "react-icons/bi";
+import "aos";
+import Image from "next/image";
+import HomeReview from "./about/HomeReview";
 
 type Slide = {
   img: string;
@@ -44,7 +49,7 @@ const Home = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [position, setPosition] = useState({ x: 0 });
+  const [x, setX] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -54,14 +59,14 @@ const Home = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  });
+  },[]);
 
   const handleMouseMove = (e: any) => {
     const rect = e.currentTarget.getBoundingClientRect();
 
-    const x = e.clientX - rect.left;
+    let xPos = e.clientX - rect.left;
 
-    setPosition({ x });
+    setX(xPos);
   };
 
   return (
@@ -71,7 +76,7 @@ const Home = () => {
         <div className="w-full min-h-[90vh] relative">
           <div
             style={{ backgroundImage: `url(${homeSlide[currentIndex].img})` }}
-            className="w-full h-full object-scale-down duration-500 absolute inset-0"
+            className="w-full h-full object-scale-down duration-500 absolute inset-0 bg-center bg-no-repeat bg-cover top-0 left-0 right-0 bottom-0"
           ></div>
 
           <div className=" max-w-7xl mx-auto flex justify-center gap-x-10 items-start">
@@ -176,7 +181,7 @@ const Home = () => {
           <div className="flex flex-col gap-y-2 md:gap-y-2  md:text-left">
             <RxDotFilled size={24} className="text-primary" />
 
-            <p className="text-gray-500  uppercase text-base">
+            <p className="dark:text-[#eaeaea] uppercase text-base">
               fueling success in
             </p>
 
@@ -216,12 +221,12 @@ const Home = () => {
       {/* card section */}
 
       <section className="w-full px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center gap-6 md:gap-8">
           {/* Left Content */}
           <div className="flex flex-col gap-y-2  md:text-left">
             <RxDotFilled size={24} className="text-primary " />
 
-            <p className="text-gray-500 uppercase text-sm sm:text-base">
+            <p className="dark:text-[#eaeaea] uppercase text-sm sm:text-base">
               our work showcase
             </p>
 
@@ -231,7 +236,7 @@ const Home = () => {
           </div>
 
           {/* Button */}
-          <div className="w-full flex  md:justify-end mt-6 md:mt-0">
+          <div className="w-full flex justify-start lg:justify-end mt-6 md:mt-0">
             <Link
               href={"/portfolio"}
               className="relative inline-flex items-center justify-center 
@@ -267,6 +272,7 @@ const Home = () => {
         {/* project section */}
         <div className=" flex flex-col mt-10 mb-5 hidden md:block">
           <div
+            data-aos="fade-up"
             onMouseMove={handleMouseMove}
             className="flex justify-between items-center project  border-t border-b py-7.5 dark:border-white border-black group cursor-pointer relative"
           >
@@ -292,20 +298,21 @@ const Home = () => {
             {/* project-img */}
             <div
               style={{
-                transform: `translate(${position.x}px,0) translate(-50%,-50%) rotate(5deg) `,
+                transform: `translateX(${x - 150}px) translateY(-50%) `,
               }}
-              className="project-img absolute w-84.25 h-55.75 top-12.5 left-[185px] pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100"
+              className="project-img absolute w-84.25 h-55.75 top-12.5   pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
             >
               <img
                 className="w-full h-full object-cover relative transition-all duration-300 ease-in-out dark:mix-blend-normal mix-blend-luminosity"
                 src="/dubai.jpg"
-                alt="Dubai digital"
+                alt="bzMart"
                 loading="lazy"
               />
             </div>
           </div>
 
           <div
+            data-aos="fade-up"
             onMouseMove={handleMouseMove}
             className="flex justify-between items-center relative project border-b py-7.5 dark:border-white border-black group cursor-pointer"
           >
@@ -329,9 +336,9 @@ const Home = () => {
             {/* project-img */}
             <div
               style={{
-                transform: `translate(${position.x}px,0) translate(-50%,-50%) rotate(5deg) `,
+                transform: `translateX(${x - 150}px) translateY(-50%) `,
               }}
-              className="project-img absolute w-84.25 h-55.75 top-12.5 left-[185px] pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100"
+              className="project-img absolute w-84.25 h-55.75 top-12.5   pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
             >
               <img
                 className="w-full h-full object-cover relative transition-all duration-300 ease-in-out dark:mix-blend-normal mix-blend-luminosity"
@@ -343,6 +350,7 @@ const Home = () => {
           </div>
 
           <div
+            data-aos="fade-up"
             onMouseMove={handleMouseMove}
             className="flex relative justify-between items-center group project border-b py-7.5 dark:border-white border-black cursor-pointer"
           >
@@ -366,9 +374,9 @@ const Home = () => {
             {/* project-img */}
             <div
               style={{
-                transform: `translate(${position.x}px,0) translate(-50%,-50%) rotate(5deg) `,
+                transform: `translateX(${x - 150}px) translateY(-50%) scale(1) `,
               }}
-              className="project-img absolute w-84.25 h-55.75 top-12.5 left-[185px] pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100"
+              className="project-img absolute w-84.25 h-55.75 top-12.5   pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
             >
               <img
                 className="w-full h-full object-cover relative transition-all duration-300 ease-in-out dark:mix-blend-normal mix-blend-luminosity"
@@ -380,6 +388,7 @@ const Home = () => {
           </div>
 
           <div
+            data-aos="fade-up"
             onMouseMove={handleMouseMove}
             className="flex group relative justify-between items-center project border-b py-7.5 dark:border-white border-black cursor-pointer"
           >
@@ -403,9 +412,9 @@ const Home = () => {
             {/* project-img */}
             <div
               style={{
-                transform: `translate(${position.x}px,0) translate(-50%,-50%) rotate(5deg) `,
+                transform: `translateX(${x - 150}px) translateY(-50%) scale(1) `,
               }}
-              className="project-img absolute w-84.25 h-55.75 top-12.5 left-[185px] pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100"
+              className="project-img absolute w-84.25 h-55.75 top-12.5   pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
             >
               <img
                 className="w-full h-full object-cover relative transition-all duration-300 ease-in-out dark:mix-blend-normal mix-blend-luminosity"
@@ -414,6 +423,431 @@ const Home = () => {
                 loading="lazy"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* discover section */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
+        <div className="  grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 md:gap-x-25">
+          {/* img section */}
+          <div
+            data-aos="fade-right"
+            className=" hidden md:flex items-center justify-center gap-x-5 lg:-mt-66"
+          >
+            <div className=" flex flex-col gap-y-5">
+              <div className="">
+                <img
+                  src="/why-choose-2-1.jpg"
+                  alt=""
+                  className="w-full object-cover"
+                />
+              </div>
+
+              <div className="">
+                <img src="/why-choose-2-2.jpg" alt="" />
+              </div>
+            </div>
+
+            <div className="">
+              <img
+                src="/why-choose-2-3.jpg"
+                alt=""
+                className="w-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* content */}
+          <div data-aos="fade-left" className=" ">
+            <div className="flex flex-col gap-y-2 md:gap-y-5  md:text-left">
+              <RxDotFilled size={24} className="text-primary" />
+
+              <p className="dark:text-[#eaeaea] uppercase text-sm sm:text-base">
+                Digitalization At Every Step
+              </p>
+
+              <h2
+                style={{ letterSpacing: "1.5px" }}
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px]  font-extrabold leading-tight max-w-[500px]"
+              >
+                Are you searching for a technology partner to speed up your
+                digital transformation?
+              </h2>
+
+              <div className="">
+                <h6 className="text-primary text-2xl lg:text-[28px] font-bold leading-tight">
+                  Congratulations! You have arrived at the right spot.
+                </h6>
+              </div>
+              <div
+                className="text-[#eaeaea]text-base font-medium"
+                style={{ lineHeight: "25px", letterSpacing: "1px" }}
+              >
+                <p>
+                  We are globally renowned for our unwavering commitment to
+                  designing and delivering top-notch IT services by leveraging
+                  the power of innovative technologies
+                </p>
+              </div>
+
+              <div className=" flex flex-wrap items-start justify-between gap-y-3">
+                <div className=" flex justify-center items-center gap-x-3">
+                  <div className="btn-icon  group   w-[81px] h-[81px] bg-[#101010] rounded-full flex items-center justify-center text-primary transition-all duration-500">
+                    <IoSettings
+                      size={25}
+                      className="group-hover:scale-90 transition-all duration-1000 ease-in-out"
+                    />
+                  </div>
+                  <h4 className=" text-[20px] max-w-[150px] font-extrabold">
+                    Quality development
+                  </h4>
+                </div>
+
+                <div className=" flex justify-center items-center gap-x-3">
+                  <div className="btn-icon  group w-[81px] h-[81px] bg-[#101010] rounded-full flex items-center justify-center text-primary transition-all duration-500">
+                    <BiCodeBlock
+                      size={25}
+                      className="group-hover:scale-90 transition-all duration-1000 ease-in-out"
+                    />
+                  </div>
+                  <h4 className=" text-[20px] max-w-[150px] font-extrabold">
+                    Powerful backend
+                  </h4>
+                </div>
+              </div>
+
+              <div className="my-5">
+                <Link
+                  href={"/"}
+                  className="relative inline-flex items-center justify-center 
+             px-8 sm:px-10 md:px-12.5 py-3 sm:py-4
+             bg-primary hover:border-black hover:border-2
+             overflow-hidden group cursor-pointer"
+                >
+                  {/* Animated background */}
+                  <span
+                    className="absolute top-1/2 left-1/2 
+               w-[300%] h-[300%] sm:w-[600%] sm:h-[600%]
+               bg-white 
+               -translate-x-1/2 -translate-y-1/2 rotate-[-25deg]
+               scale-0 group-hover:scale-100 transition-all
+                duration-1000 ease-out"
+                  ></span>
+
+                  {/* Text */}
+                  <span
+                    className="relative z-10 
+               text-white group-hover:text-primary
+               transition-colors duration-300 
+               font-bold sm:font-extrabold
+               text-sm sm:text-base lg:text-[17px]"
+                  >
+                    Discover More
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* achivemnts section */}
+      <section
+        className="w-full relative mx-auto max-w-7xl bg-[#eaeaea] dark:bg-[#101010]
+  py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-12 min-h-screen overflow-hidden"
+      >
+        {/* Background */}
+        <div className="absolute inset-0 flex items-start justify-center">
+          <Image
+            alt="award"
+            src="/award-bg.png"
+            width={645}
+            height={165}
+            className="w-[80%] sm:w-[70%] md:w-[60%] object-contain"
+          />
+        </div>
+
+        {/* tablet */}
+
+        <div className="md:flex hidden md:block lg:hidden items-center justify-between gap-5 lg:hidden sm:hidden">
+          <div className="flex flex-col gap-5 items-center md:w-1/2">
+            <div
+              className="bg-black p-5 max-w-xs flex justify-between items-start"
+              style={{ padding: "28px 40px 26px" }}
+            >
+              <p className="award_title text-white font-bold text-xl sm:text-">
+                100+APIs that can connect with your existing infrastructure and
+                3rd party apps
+              </p>
+              <img src="/award-icon.png" className="w-6 mt-2.5" />
+            </div>
+
+            {/* Card 2 */}
+            <div
+              className="bg-black p-5 max-w-xs flex justify-between items-start"
+              style={{ padding: "28px 40px 26px" }}
+            >
+              <p className="award_title text-white font-bold text-xl sm:text-">
+                Deploy on any cloud/on-premise environment
+              </p>
+              <img src="/award-icon.png" className="w-6 mt-2.5" />
+            </div>
+
+            <div
+              className="bg-black p-5 max-w-xs flex justify-between items-start"
+              style={{ padding: "28px 40px 26px" }}
+            >
+              <p className="award_title text-white font-bold text-xl sm:text-">
+                Improved customer and employee experience via mobile and web
+                apps.
+              </p>
+              <img src="/award-icon.png" className="w-6 mt-2.5" />
+            </div>
+
+            {/* Card 4 */}
+            <div
+              className="bg-black p-5 max-w-xs flex justify-between items-start"
+              style={{ padding: "28px 40px 26px" }}
+            >
+              <p className="award_title text-white font-bold text-xl sm:text-">
+                Basic to advance machine learning models that fits into a
+                different level of data maturity
+              </p>
+              <img src="/award-icon.png" className="w-6 mt-2.5" />
+            </div>
+          </div>
+
+          <div className="">
+            <Image
+              alt="award"
+              src="/award.png"
+              width={314}
+              height={535}
+              className="w-[200px] sm:w-[240px] md:w-[260px] object-contain"
+            />
+          </div>
+        </div>
+
+        {/* Mobile */}
+        <div className="flex block md:hidden  flex-col sm:flex-row items-center sm:items-center justify-between gap-10 lg:hidden md:hidden">
+          {/* Top Cards */}
+          <div className="flex flex-col gap-6 w-full items-center md:items-start md:w-1/2">
+            {/* Card 1 */}
+            <div
+              className="bg-black p-5 max-w-xs flex justify-between items-start"
+              style={{ padding: "28px 40px 26px" }}
+            >
+              <p className="award_title text-white font-bold text-xl sm:text-">
+                100+APIs that can connect with your existing infrastructure and
+                3rd party apps
+              </p>
+              <img src="/award-icon.png" className="w-6 mt-2.5" />
+            </div>
+
+            {/* Card 2 */}
+            <div
+              className="bg-black p-5 max-w-xs flex justify-between items-start"
+              style={{ padding: "28px 40px 26px" }}
+            >
+              <p className="award_title text-white font-bold text-xl sm:text-">
+                Deploy on any cloud/on-premise environment
+              </p>
+              <img src="/award-icon.png" className="w-6 mt-2.5" />
+            </div>
+          </div>
+
+          {/* Center Image */}
+          <Image
+            alt="award"
+            src="/award.png"
+            width={314}
+            height={535}
+            className="w-[200px] sm:w-[240px] md:w-[260px] object-contain"
+          />
+
+          {/* Bottom Cards */}
+          <div className="flex flex-col gap-6 w-full items-center md:items-start md:w-1/2 md:mt-0">
+            {/* Card 3 */}
+            <div
+              className="bg-black p-5 max-w-xs flex justify-between items-start"
+              style={{ padding: "28px 40px 26px" }}
+            >
+              <p className="award_title text-white font-bold text-xl sm:text-">
+                Improved customer and employee experience via mobile and web
+                apps.
+              </p>
+              <img src="/award-icon.png" className="w-6 mt-2.5" />
+            </div>
+
+            {/* Card 4 */}
+            <div
+              className="bg-black p-5 max-w-xs flex justify-between items-start"
+              style={{ padding: "28px 40px 26px" }}
+            >
+              <p className="award_title text-white font-bold text-xl sm:text-">
+                Basic to advance machine learning models that fits into a
+                different level of data maturity
+              </p>
+              <img src="/award-icon.png" className="w-6 mt-2.5" />
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Layout (your original design preserved) */}
+        <div
+          className="hidden lg:flex absolute top-1/2 left-1/2 
+    -translate-x-1/2 -translate-y-1/2 
+    w-full max-w-7xl px-12 
+    items-center justify-between  lg:block"
+        >
+          {/* LEFT */}
+          <div
+            data-aos="fade-up"
+            data-aos-duration="4000"
+            className="flex flex-col gap-y-10"
+          >
+            {/* same cards */}
+            {/* Card 1 */}
+            <div
+              className="bg-black group p-5 max-w-xs flex justify-between items-start"
+              style={{ padding: "28px 40px 26px" }}
+            >
+              <p className="award_title text-white font-bold text-xl sm:text-">
+                100+APIs that can connect with your existing infrastructure and
+                3rd party apps
+              </p>
+              <img
+                src="/award-icon.png"
+                className="mt-2.5 group-hover:scale-90 transition-all duration-1000 ease-in-out"
+              />
+            </div>
+
+            {/* Card 2 */}
+            <div
+              className="bg-black group p-5 max-w-xs flex justify-between items-start"
+              style={{ padding: "28px 40px 26px" }}
+            >
+              <p className="award_title text-white font-bold text-xl sm:text-">
+                Deploy on any cloud/on-premise environment
+              </p>
+              <img
+                src="/award-icon.png"
+                className=" mt-2.5 group-hover:scale-90 transition-all duration-1000 ease-in-out"
+              />
+            </div>
+          </div>
+
+          {/* CENTER IMAGE */}
+
+          <div data-aos="fade-up" data-aos-duration="3000" className="award-trophy">
+            <Image
+              alt="award"
+              src="/award.png"
+              width={314}
+              height={535}
+              className="object-contain "
+            />
+          </div>
+
+          {/* RIGHT */}
+          <div
+            data-aos="fade-up"
+            data-aos-duration="4000"
+            className="flex flex-col gap-y-10"
+          >
+            {/* same cards */}
+            <div
+              className="bg-black group p-5 max-w-xs flex justify-between items-start"
+              style={{ padding: "28px 40px 26px" }}
+            >
+              <p className="award_title text-white font-bold text-xl sm:text-">
+                Improved customer and employee experience via mobile and web
+                apps.
+              </p>
+              <img
+                src="/award-icon.png"
+                className=" mt-2.5 group-hover:scale-90 transition-all duration-1000 ease-in-out"
+              />
+            </div>
+
+            {/* Card 4 */}
+            <div
+              className="bg-black group p-5 max-w-xs flex justify-between items-start"
+              style={{ padding: "28px 40px 26px" }}
+            >
+              <p className="award_title text-white font-bold text-xl sm:text-">
+                Basic to advance machine learning models that fits into a
+                different level of data maturity
+              </p>
+              <img
+                src="/award-icon.png"
+                className=" mt-2.5 group-hover:scale-90 transition-all duration-1000 ease-in-out"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* clients tesinominal */}
+      <HomeReview />
+
+      {/* above footer section */}
+
+      <section
+        className=" cta relative bg-[#e3e3e3] w-full h-[40vh] dark:bg-[#010101]"
+        style={{ padding: "120px 0px" }}
+      >
+        <div
+          className="cta-bg w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/cta-bg-2.jpg')" }}
+        ></div>
+
+        <div
+          className="flex flex-wrap items-center justify-evenly md:items-start
+ w-full h-full"
+        >
+          {/* Heading */}
+          <div className="" data-aos="fade-right">
+            <h2
+              style={{ letterSpacing: "1.5px" }}
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px] 
+      font-extrabold leading-tight max-w-full"
+            >
+              Looking for best web solutions?
+            </h2>
+          </div>
+
+          {/* Button */}
+          <div className="" data-aos="fade-left">
+            <Link
+              href={"/"}
+              className="relative inline-flex items-center justify-center 
+      px-8 sm:px-10 md:px-12.5 py-3 sm:py-4
+      bg-primary hover:border-black hover:border
+      overflow-hidden group cursor-pointer"
+            >
+              {/* Animated background */}
+              <span
+                className="absolute top-1/2 left-1/2 
+        w-[300%] h-[300%] sm:w-[600%] sm:h-[600%]
+        bg-white 
+        -translate-x-1/2 -translate-y-1/2 rotate-[-25deg]
+        scale-0 group-hover:scale-100 transition-all
+        duration-1000 ease-out"
+              ></span>
+
+              {/* Text */}
+              <span
+                className="relative z-10 
+        text-white group-hover:text-primary
+        transition-colors duration-300 
+        font-bold sm:font-extrabold
+        text-sm sm:text-base md:text-[14px] lg:text-[17px]"
+              >
+                Discover More
+              </span>
+            </Link>
           </div>
         </div>
       </section>

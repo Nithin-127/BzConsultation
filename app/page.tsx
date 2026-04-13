@@ -9,7 +9,6 @@ const page = () => {
   return (
     <>
       <Home />
-      <HomeReview />
     </>
   );
 };

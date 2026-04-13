@@ -33,6 +33,7 @@ import Link from "next/link";
 import { menuItems } from "@/lib/menu";
 import Image from "next/image";
 import LanguageSelect from "./LanguageDrop";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const menuItems = [
@@ -47,6 +48,7 @@ const Navbar = () => {
 
   const [openLang, setOpenLang] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname=usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,7 +84,7 @@ const Navbar = () => {
                 <Link
                   key={index}
                   href={item.href}
-                  className={` text-white text-[14px] font-semibold flex items-center gap-1 hover:text-primary transition `}
+                  className={`${pathname===item.href ? "text-primary":"text-white"} text-[14px] font-semibold flex items-center gap-1 hover:text-primary transition-all `}
                 >
                   <div
                     className="relative
