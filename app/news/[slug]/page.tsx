@@ -160,7 +160,16 @@ const { slug } = useParams();
 
   return (
     <>
-  <div className="max-w-7xl mx-auto pl-3 pr-6 md:pl-24 md:pr-16 py-12">
+
+    <section className="page-header relative consultant min-h-[50vh] sm:min-h-[40vh] md:min-h-[60vh] flex items-center">
+        <div className="absolute h-full bg-img inset-0 bg-gray-200 dark:bg-gray-900" />
+        <div className="absolute overlay hidden dark:block" />
+
+        <BreadcrumbWrapper />
+      </section>
+
+  <div className="bg-white dark:bg-black text-black dark:text-white">
+    <div className="max-w-7xl mx-auto pl-3 pr-6 md:pl-24 md:pr-16 py-12">
       
       <div className="flex flex-col md:flex-row gap-6 items-start">
 
@@ -168,7 +177,7 @@ const { slug } = useParams();
         <div className="w-full md:w-[70%] text-white
           [&>h1]:text-[30px] [&>h1]:font-light [&>h1]:mb-[13px] [&>h1]:mt-6
           [&>h2]:text-[20px] [&>h2]:font-bold [&>h2]:mb-[13px] [&>h2]:mt-5
-          [&>p]:text-[16px] [&>p]:leading-[1.875] [&>p]:tracking-[0.5px] [&>p]:mt-4
+          [&>p]:text-[18px] [&>p]:leading-relaxed [&>p]:tracking-[0.5px] [&>p]:mt-4 
           [&>img]:rounded-xl [&>img]:my-5 [&>img]:border [&>img]:border-white"
         >
 
@@ -211,7 +220,7 @@ const { slug } = useParams();
 
           {/* ✅ MOBILE ONLY - BELOW IMAGE */}
           <div className="block md:hidden mt-4">
-            <h2 className="text-[20px] mb-4 font-semibold text-white">
+            <h2 className="text-[20px] mb-4 font-semibold text-black dark:text-white">
               In this article
             </h2>
 
@@ -224,8 +233,16 @@ const { slug } = useParams();
           {news.content.map((item, index) => {
             if (item.type === "h1") return <h1 key={index}>{item.text}</h1>;
             if (item.type === "h2") return <h2 key={index}>{item.text}</h2>;
-            if (item.type === "p") return <p key={index}>{item.text}</p>;
-            if (item.type === "img" && "src" in item) return <img key={index} src={item.src as string} alt="" />;
+if (item.type === "p") {
+  return (
+    <p
+      key={index}
+      className="text-[18px] leading-relaxed tracking-[0.5px] mt-4 text-gray-800 dark:text-gray-300"
+    >
+      {item.text}
+    </p>
+  );
+}            if (item.type === "img" && "src" in item) return <img key={index} src={item.src as string} alt="" />;
             if (item.type === "ol" && "items" in item && item.items)
               return (
                 <ul key={index} className="list-disc pl-5 mt-4 space-y-3">
@@ -241,7 +258,7 @@ const { slug } = useParams();
 
           {/* DESKTOP ONLY */}
           <div className="hidden md:block">
-            <h2 className="text-[20px] mb-6 font-semibold text-white">
+            <h2 className="text-[20px] mb-6 font-semibold text-black dark:text-white">
               In this article
             </h2>
 
@@ -256,7 +273,7 @@ const { slug } = useParams();
               Share with your community!
             </p>
 
-            <div className="flex gap-3">
+            <div className="flex gap-3 cursor-pointer">
               {[FaFacebookF, FaXTwitter, FaLinkedinIn].map((Icon, i) => (
                 <div
                   key={i}
@@ -278,6 +295,7 @@ const { slug } = useParams();
 
       <Threecard />
     </div>
+  </div>
     </>
   );
 }
