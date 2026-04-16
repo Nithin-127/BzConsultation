@@ -847,8 +847,11 @@ const newsData: NewsItem[] = [
   <div className="max-w-6xl mx-auto">
     
     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-{newsData.map((item) => (
-  <Link data-aos="fade-right" key={item.id} href={`/news/${item.slug}`} className="block">
+{newsData.map((item,index) => (
+  <Link data-aos="fade-right" data-aos-delay={index * 150}   // ✅ stagger effect
+    data-aos-duration="500"
+    data-aos-once="true"
+ key={item.id} href={`/news/${item.slug}`} className="block">
     <div className="group cursor-pointer">
 
       {/* Image Section */}

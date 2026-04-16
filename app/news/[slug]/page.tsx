@@ -20,6 +20,8 @@ const NewsData = [
     date: "Apr 16",
     readTime: "10 min read",
     image: "/newssingle1.jpg",
+    summary: "BzAnalytics's Journey from 2020 to 2023", 
+
 
     content: [
       {
@@ -66,6 +68,8 @@ const NewsData = [
     date: "July 29",
     readTime: "10 min read",
     image: "/newssingle2.jpg",
+    summary: "BzAnalytics and CloudQ Forge a Formidable Alliance", 
+
 
     content: [
       {
@@ -110,6 +114,8 @@ const NewsData = [
     date: "July 29",
     readTime: "10 min read",
     image: "/newssingle3.jpg",
+    summary: "BzAnalytics Achieves Outstanding Recognition ", 
+
 
     content: [
       {
@@ -225,7 +231,7 @@ const { slug } = useParams();
             </h2>
 
             <p className="border-l-[3px] border-orange-500 pl-3 py-2 text-[#f79d0f]">
-              RAG Transforming generative AI.
+            {news.summary}
             </p>
           </div>
 
@@ -263,7 +269,7 @@ if (item.type === "p") {
             </h2>
 
             <p className="border-l-[3px] border-orange-500 pl-3 py-2 text-[#f79d0f]">
-              RAG Transforming generative AI.
+             {news.summary}
             </p>
           </div>
 
