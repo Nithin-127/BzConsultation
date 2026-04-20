@@ -59,7 +59,7 @@ const Home = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  },[]);
+  }, []);
 
   const handleMouseMove = (e: any) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -740,7 +740,11 @@ const Home = () => {
 
           {/* CENTER IMAGE */}
 
-          <div data-aos="fade-up" data-aos-duration="3000" className="award-trophy">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="award-trophy"
+          >
             <Image
               alt="award"
               src="/award.png"
@@ -795,55 +799,63 @@ const Home = () => {
       {/* above footer section */}
 
       <section
-        className=" cta relative bg-[#e3e3e3] w-full h-[40vh] dark:bg-[#010101]"
-        style={{ padding: "120px 0px" }}
+        className="cta relative bg-[#e3e3e3] w-full 
+  h-auto sm:h-[40vh] 
+  dark:bg-[#010101] 
+  px-4 sm:px-6 lg:px-8 
+  py-10 sm:py-16 lg:py-20"
       >
+        {/* Background */}
         <div
-          className="cta-bg w-full h-full bg-cover bg-center bg-no-repeat"
+          className="cta-bg absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/cta-bg-2.jpg')" }}
         ></div>
 
+        {/* Content */}
         <div
-          className="flex flex-wrap items-center justify-evenly md:items-start
- w-full h-full"
+          className="relative z-10 max-w-7xl mx-auto 
+    flex flex-col sm:flex-row gap-x-30
+    items-center justify-evenly 
+   sm:gap-10 h-full sm:text-left"
         >
           {/* Heading */}
-          <div className="" data-aos="fade-right">
+          <div data-aos="fade-right">
             <h2
               style={{ letterSpacing: "1.5px" }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px] 
-      font-extrabold leading-tight max-w-full"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-[45px] 
+        font-extrabold leading-tight max-w-full"
             >
               Looking for best web solutions?
             </h2>
           </div>
 
           {/* Button */}
-          <div className="" data-aos="fade-left">
+          <div data-aos="fade-left" className="max-w-full">
             <Link
               href={"/"}
-              className="relative inline-flex items-center justify-center 
-      px-8 sm:px-10 md:px-12.5 py-3 sm:py-4
-      bg-primary hover:border-black hover:border
-      overflow-hidden group cursor-pointer"
+              className="relative inline-flex items-center justify-start 
+        px-6 sm:px-8 md:px-10 lg:px-12.5 
+        py-2.5 sm:py-3 md:py-4
+        bg-primary hover:border-black hover:border
+        overflow-hidden group cursor-pointer"
             >
               {/* Animated background */}
               <span
                 className="absolute top-1/2 left-1/2 
-        w-[300%] h-[300%] sm:w-[600%] sm:h-[600%]
-        bg-white 
-        -translate-x-1/2 -translate-y-1/2 rotate-[-25deg]
-        scale-0 group-hover:scale-100 transition-all
-        duration-1000 ease-out"
+          w-[300%] h-[300%] sm:w-[600%] sm:h-[600%]
+          bg-white 
+          -translate-x-1/2 -translate-y-1/2 rotate-[-25deg]
+          scale-0 group-hover:scale-100 transition-all
+          duration-1000 ease-out"
               ></span>
 
               {/* Text */}
               <span
                 className="relative z-10 
-        text-white group-hover:text-primary
-        transition-colors duration-300 
-        font-bold sm:font-extrabold
-        text-sm sm:text-base md:text-[14px] lg:text-[17px]"
+          text-white group-hover:text-primary
+          transition-colors duration-300 
+          font-bold sm:font-extrabold
+          text-sm sm:text-base md:text-[14px] lg:text-[17px]"
               >
                 Discover More
               </span>
