@@ -21,15 +21,51 @@ interface CardItem {
 }
 
 const cards: CardItem[] = [
-  { title: "Metaverse & Gaming", img: "/img1.jpg", desc: "Empowering Metaverse & Gaming with Innovative Solutions." },
-  { title: "Energy & Manufacturing", img: "/img2.jpg", desc: "Optimizing Operations: Solutions for Energy & Manufacturing." },
-  { title: "SDG", img: "/img3.jpg", desc: "Tech-Driven Sustainability: Achieving Goals with Innovation." },
-  { title: "Healthcare", img: "/img4.jpg", desc: "Revolutionizing Healthcare: Better Patient Care through Innovation." },
-  { title: "Textile", img: "/img5.jpg", desc: "Digital Transformation in Textile: Innovation-Led Progress." },
-  { title: "Corporate", img: "/img6.jpg", desc: "Strategic Solutions for Corporate Success." },
-  { title: "Advertising", img: "/img7.jpg", desc: "Elevating Brands: Creative Solutions for Advertising." },
-  { title: "PSU", img: "/img8.jpg", desc: "Efficiency Redefined: Excellence in Public Sector Undertakings." },
-  { title: "Finance", img: "/img9.jpg", desc: "Transforming Finance: Cutting-Edge Solutions." },
+  {
+    title: "Metaverse & Gaming",
+    img: "/img1.jpg",
+    desc: "Empowering Metaverse & Gaming with Innovative Solutions.",
+  },
+  {
+    title: "Energy & Manufacturing",
+    img: "/img2.jpg",
+    desc: "Optimizing Operations: Solutions for Energy & Manufacturing.",
+  },
+  {
+    title: "SDG",
+    img: "/img3.jpg",
+    desc: "Tech-Driven Sustainability: Achieving Goals with Innovation.",
+  },
+  {
+    title: "Healthcare",
+    img: "/img4.jpg",
+    desc: "Revolutionizing Healthcare: Better Patient Care through Innovation.",
+  },
+  {
+    title: "Textile",
+    img: "/img5.jpg",
+    desc: "Digital Transformation in Textile: Innovation-Led Progress.",
+  },
+  {
+    title: "Corporate",
+    img: "/img6.jpg",
+    desc: "Strategic Solutions for Corporate Success.",
+  },
+  {
+    title: "Advertising",
+    img: "/img7.jpg",
+    desc: "Elevating Brands: Creative Solutions for Advertising.",
+  },
+  {
+    title: "PSU",
+    img: "/img8.jpg",
+    desc: "Efficiency Redefined: Excellence in Public Sector Undertakings.",
+  },
+  {
+    title: "Finance",
+    img: "/img9.jpg",
+    desc: "Transforming Finance: Cutting-Edge Solutions.",
+  },
 ];
 
 const CARD_WIDTH = 380;
@@ -83,7 +119,7 @@ const Home = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  },[]);
+  }, []);
 
   const handleMouseMove = (e: any) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -94,36 +130,38 @@ const Home = () => {
   };
 
   type NewsItem = {
-  id: number;
-  title: string;
-  category: string;
-  date: string;
-  image: string;
-};
+    id: number;
+    title: string;
+    category: string;
+    date: string;
+    image: string;
+  };
 
-const newsData: NewsItem[] = [
-  {
-    id: 1,
-    title: "BzAnalytics and CloudQ Forge a Formidable Alliance to Redefine Business Solutions in 2023",
-    category: "Alliance",
-    date: "29 JULY",
-    image: "/newsimage.jpg",
-  },
-  {
-    id: 2,
-    title: "BzAnalytics Achieves Outstanding Recognition: Among Top 5 Companies at Prestigious Entrepreneurship Expo",
-    category: "Achieves",
-    date: "30 NOV",
-    image: "/newsimage2.jpg",
-  },
-  {
-    id: 3,
-    title: "From Vision to Reality: BzAnalytics's Journey from 2020 to 2023",
-    category: "Journey",
-    date: "16 APR",
-    image: "/newsimage3.jpg",
-  },
-];
+  const newsData: NewsItem[] = [
+    {
+      id: 1,
+      title:
+        "BzAnalytics and CloudQ Forge a Formidable Alliance to Redefine Business Solutions in 2023",
+      category: "Alliance",
+      date: "29 JULY",
+      image: "/newsimage.jpg",
+    },
+    {
+      id: 2,
+      title:
+        "BzAnalytics Achieves Outstanding Recognition: Among Top 5 Companies at Prestigious Entrepreneurship Expo",
+      category: "Achieves",
+      date: "30 NOV",
+      image: "/newsimage2.jpg",
+    },
+    {
+      id: 3,
+      title: "From Vision to Reality: BzAnalytics's Journey from 2020 to 2023",
+      category: "Journey",
+      date: "16 APR",
+      image: "/newsimage3.jpg",
+    },
+  ];
   const [startIndex, setStartIndex] = useState(0);
 
   const maxIndex = cards.length - VISIBLE_CARDS;
@@ -285,13 +323,12 @@ const newsData: NewsItem[] = [
 
       {/* card section */}
       <section className="w-full bg-white dark:bg-black py-10 mt-40 overflow-hidden">
-      <div className="relative px-5">
-
-        {/* LEFT ARROW */}
-{startIndex > 0 && (
-  <button
-    onClick={prevSlide}
-    className="
+        <div className="relative px-5">
+          {/* LEFT ARROW */}
+          {startIndex > 0 && (
+            <button
+              onClick={prevSlide}
+              className="
     absolute left-2 top-1/2 -translate-y-1/2 z-40
     w-[28px] h-[60px]
     bg-black text-white
@@ -303,10 +340,10 @@ const newsData: NewsItem[] = [
     transition-all duration-500
     cursor-pointer
     "
-  >
-    {/* Sweep Animation */}
-    <span
-      className="
+            >
+              {/* Sweep Animation */}
+              <span
+                className="
       absolute left-1/2 top-1/2
       w-[150%] h-0
       bg-white
@@ -316,20 +353,20 @@ const newsData: NewsItem[] = [
       group-hover:h-[400%]
       -z-10
       "
-    />
+              />
 
-    {/* Arrow */}
-    <span className="relative z-10 text-white text-2xl font-bold group-hover:text-orange-500 transition-colors duration-300">
-      ‹
-    </span>
-  </button>
-)}
+              {/* Arrow */}
+              <span className="relative z-10 text-white text-2xl font-bold group-hover:text-orange-500 transition-colors duration-300">
+                ‹
+              </span>
+            </button>
+          )}
 
-{/* RIGHT ARROW */}
-{startIndex < maxIndex && (
-  <button
-    onClick={nextSlide}
-    className="
+          {/* RIGHT ARROW */}
+          {startIndex < maxIndex && (
+            <button
+              onClick={nextSlide}
+              className="
     absolute right-2 top-1/2 -translate-y-1/2 z-40
    w-[28px] h-[60px]
     bg-black text-white
@@ -341,10 +378,10 @@ const newsData: NewsItem[] = [
     transition-all duration-500
     cursor-pointer
     "
-  >
-    {/* Sweep Animation */}
-    <span
-      className="
+            >
+              {/* Sweep Animation */}
+              <span
+                className="
       absolute left-1/2 top-1/2
       w-[150%] h-0
       bg-white
@@ -354,67 +391,71 @@ const newsData: NewsItem[] = [
       group-hover:h-[400%]
       -z-10
       "
-    />
+              />
 
-    {/* Arrow */}
-    <span className="relative z-10 text-white text-2xl font-bold  group-hover:text-orange-500 transition-colors duration-300">
-      ›
-    </span>
-  </button>
-)}
+              {/* Arrow */}
+              <span className="relative z-10 text-white text-2xl font-bold  group-hover:text-orange-500 transition-colors duration-300">
+                ›
+              </span>
+            </button>
+          )}
 
-        {/* VIEWPORT */}
-        <div className="overflow-hidden pr-[120px]">
-          <div
-            className="flex gap-6 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-            style={{
-              transform: `translateX(-${startIndex * (CARD_WIDTH + GAP)}px)`
-            }}
-          >
-            {cards.map((card, index) => (
-              <div
-                key={index}
-                className="group/card relative w-[380px] h-[250px] flex-shrink-0 rounded-[10px] overflow-hidden cursor-pointer
-           transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-           group-hover:translate-x-3 hover:!translate-x-0
-           hover:scale-110 hover:z-20"
-              >
-                {/* Image */}
-                <Image
-                  src={card.img}
-                  alt={card.title}
-                  fill
-                  className="object-cover "
-                />
+          {/* VIEWPORT */}
+          <div className="overflow-hidden ">
+            <div
+              className="flex gap-6 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              style={{
+                transform: `translateX(-${startIndex * (CARD_WIDTH + GAP)}px)`,
+              }}
+            >
+              {cards.map((card, index) => (
+                <div
+                  key={index}
+                  className="
+group/card relative flex-shrink-0
+w-[380px] h-[250px]
 
-                {/* Overlay */}
-                <div className="absolute inset-0  transition-all duration-500" />
+rounded-[2px] overflow-hidden cursor-pointer
 
-                {/* Content */}
-                <div className="absolute bottom-10 w-fit p-4 bg-black opacity-60 mb-0">
-                  <h3 className="text-white text-[20px]  font-semibold">
-                    {card.title}
-                  </h3>
+transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
 
-                  
+hover:w-[480px] hover:h-[300px]
+hover:-mx-[12px]
+hover:z-20
+"
+                >
+                  {/* Image */}
+                  <Image
+                    src={card.img}
+                    alt={card.title}
+                    fill
+                    className="object-cover "
+                  />
+
+                  {/* Overlay */}
+                  <div className="absolute inset-0  transition-all duration-500" />
+
+                  {/* Content */}
+                  <div className="absolute bottom-10 w-fit p-4 bg-black opacity-60 mb-0">
+                    <h3 className="text-white text-[20px]  font-semibold">
+                      {card.title}
+                    </h3>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-
-      </div>
-    </section>
+      </section>
       {/* text-content section */}
-      
 
       <section className="w-full px-4 sm:px-6   bg-white dark:bg-black">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-15 mx-auto max-w-7xl">
           <div className="flex flex-col gap-y-2 md:gap-y-2  md:text-left">
-           <span className=" w-2 h-2 rounded-full bg-yellow-600" />
+            <span className=" w-2 h-2 rounded-full bg-yellow-600" />
 
             <p className="dark:text-[#eaeaea] uppercase text-base">
-             What we’re offering
+              What we’re offering
             </p>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[45px]  font-extrabold leading-tight">
@@ -429,8 +470,9 @@ const newsData: NewsItem[] = [
                 style={{ letterSpacing: "1px" }}
               >
                 <RxDotFilled className="min-w-[24px]" size={24} />
-                BzAnalytics works with the world's leading Enterprises, SMEs & Startups – 
-              to plan, develop, test and expand their digital initiatives.
+                BzAnalytics works with the world's leading Enterprises, SMEs &
+                Startups – to plan, develop, test and expand their digital
+                initiatives.
               </li>
 
               <li
@@ -438,151 +480,156 @@ const newsData: NewsItem[] = [
                 style={{ letterSpacing: "1px" }}
               >
                 <RxDotFilled className="min-w-[24px]" size={24} />
-                We assure your business grows with innovative and sustainable technologies 
-              built to brand your identity.
+                We assure your business grows with innovative and sustainable
+                technologies built to brand your identity.
               </li>
             </ul>
           </div>
         </div>
       </section>
-       <section className="w-full  bg-white dark:bg-black text-white py-20 px-6 md:px-12 lg:px-20">
-      {/* cards */}
-      <div
-        className="w-full theme-bg 
+      <section className="w-full  bg-white dark:bg-black text-white py-20 px-6 md:px-12 lg:px-20">
+        {/* cards */}
+        <div
+          className="w-full theme-bg 
 py-12 sm:py-14 md:py-16
 px-4 sm:px-6 md:px-8
  lg:-mt-[20px]  
 "
-      >
-       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Card 1 */}
-          <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer">
-            <img
-              src="/ux_1.jpg"
-              alt="UX Design"
-              className="w-full h-[350px] object-cover"
-            />
+        >
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Card 1 */}
+            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer">
+              <img
+                src="/ux_1.jpg"
+                alt="UX Design"
+                className="w-full h-[350px] object-cover"
+              />
 
-            {/* Orange Circle */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
-                <p className="text-white font-extrabold text-center leading-[1.1]">
-                  <span className="block text-2xl sm:text-3xl">UX/UI</span>
-                  <span className="block text-2xl sm:text-3xl">Design</span>
+              {/* Orange Circle */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                  <p className="text-white font-extrabold text-center leading-[1.1]">
+                    <span className="block text-2xl sm:text-3xl">UX/UI</span>
+                    <span className="block text-2xl sm:text-3xl">Design</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* Black Overlay */}
+              <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
+                <p className="text-white mb-3 text-sm sm:text-base">
+                  Enhancing user experiences through research, wireframes, and
+                  prototypes, creating visually appealing and user-friendly
+                  interfaces.
+                </p>
+                <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
+                  Read More
+                  <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
                 </p>
               </div>
             </div>
 
-            {/* Black Overlay */}
-            <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
-              <p className="text-white mb-3 text-sm sm:text-base">
-                Enhancing user experiences through research, wireframes, and
-                prototypes, creating visually appealing and user-friendly
-                interfaces.
-              </p>
-              <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
-                Read More
-                <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
-              </p>
-            </div>
-          </div>
+            {/* Card 2 */}
+            <div className="relative w-full max-w-sm  overflow-hidden shadow-lg group cursor-pointer">
+              <img
+                src="/ux_2.jpg"
+                alt="UX Design 2"
+                className="w-full h-[350px] object-cover"
+              />
 
-          {/* Card 2 */}
-          <div className="relative w-full max-w-sm  overflow-hidden shadow-lg group cursor-pointer">
-            <img
-              src="/ux_2.jpg"
-              alt="UX Design 2"
-              className="w-full h-[350px] object-cover"
-            />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                  <p className="text-white font-extrabold text-center leading-[1.1]">
+                    <span className="block text-2xl sm:text-3xl">
+                      On Demand
+                    </span>
+                    <span className="block text-2xl sm:text-3xl">Product</span>
+                    <span className="block text-2xl sm:text-3xl">Team</span>
+                  </p>
+                </div>
+              </div>
 
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
-                <p className="text-white font-extrabold text-center leading-[1.1]">
-                  <span className="block text-2xl sm:text-3xl">On Demand</span>
-                  <span className="block text-2xl sm:text-3xl">Product</span>
-                  <span className="block text-2xl sm:text-3xl">Team</span>
+              <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
+                <p className="text-white mb-3 text-sm sm:text-base">
+                  Flexible teams for custom software development, scaling, and
+                  extending your internal team's capabilities, led by dedicated
+                  developers and product owners.
+                </p>
+                <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
+                  Read More
+                  <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
                 </p>
               </div>
             </div>
 
-            <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
-              <p className="text-white mb-3 text-sm sm:text-base">
-                Flexible teams for custom software development, scaling, and
-                extending your internal team's capabilities, led by dedicated
-                developers and product owners.
-              </p>
-              <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
-                Read More
-                <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
-              </p>
-            </div>
-          </div>
+            {/* Card 3 */}
+            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer">
+              <img
+                src="/ux_3.jpg"
+                alt="UX Design 3"
+                className="w-full h-[350px] object-cover"
+              />
 
-          {/* Card 3 */}
-          <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer">
-            <img
-              src="/ux_3.jpg"
-              alt="UX Design 3"
-              className="w-full h-[350px] object-cover"
-            />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                  <p className="text-white font-extrabold text-center leading-[1.1]">
+                    <span className="block text-2xl sm:text-3xl">
+                      Mobile App
+                    </span>
+                    <span className="block text-2xl sm:text-3xl">
+                      Development
+                    </span>
+                  </p>
+                </div>
+              </div>
 
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
-                <p className="text-white font-extrabold text-center leading-[1.1]">
-                  <span className="block text-2xl sm:text-3xl">Mobile App</span>
-                  <span className="block text-2xl sm:text-3xl">
-                    Development
-                  </span>
+              <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
+                <p className="text-white mb-3 text-sm sm:text-base">
+                  Building iOS and Android apps, including cross-platform
+                  development using Flutter, tailored for both consumer and
+                  enterprise needs.
+                </p>
+                <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
+                  Read More
+                  <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
                 </p>
               </div>
             </div>
 
-            <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
-              <p className="text-white mb-3 text-sm sm:text-base">
-                Building iOS and Android apps, including cross-platform
-                development using Flutter, tailored for both consumer and
-                enterprise needs.
-              </p>
-              <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
-                Read More
-                <FaArrowRight className="transition-transform duration-300 ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
-              </p>
-            </div>
-          </div>
+            {/* Card 4 */}
+            <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer">
+              <img
+                src="/ux_4.jpg"
+                alt="UX Design 4"
+                className="w-full h-[350px] object-cover"
+              />
 
-          {/* Card 4 */}
-          <div className="relative w-full max-w-sm overflow-hidden shadow-lg group cursor-pointer">
-            <img
-              src="/ux_4.jpg"
-              alt="UX Design 4"
-              className="w-full h-[350px] object-cover"
-            />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
+                  <p className="text-white font-extrabold text-center leading-[1.1]">
+                    <span className="block text-2xl sm:text-3xl">Web</span>
+                    <span className="block text-2xl sm:text-3xl">
+                      Development
+                    </span>
+                  </p>
+                </div>
+              </div>
 
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-56 h-56 rounded-full bg-orange-400/80 flex items-center justify-center transition-opacity duration-500 group-hover:opacity-0 p-4">
-                <p className="text-white font-extrabold text-center leading-[1.1]">
-                  <span className="block text-2xl sm:text-3xl">Web</span>
-                  <span className="block text-2xl sm:text-3xl">
-                    Development
-                  </span>
+              <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
+                <p className="text-white mb-3 text-sm sm:text-base">
+                  Crafting websites, web applications, and custom software,
+                  along with creating web portals for specific business
+                  purposes.
+                </p>
+                <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
+                  Read More
+                  <FaArrowRight className="transition-transform duration-300 text-white ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
                 </p>
               </div>
-            </div>
-
-            <div className="absolute inset-0 bg-black/60 -translate-y-full flex flex-col items-center justify-center text-center p-4 transition-transform duration-500 group-hover:translate-y-0">
-              <p className="text-white mb-3 text-sm sm:text-base">
-                Crafting websites, web applications, and custom software, along
-                with creating web portals for specific business purposes.
-              </p>
-              <p className="flex items-center gap-2 text-sm font-medium cursor-pointer transition-all duration-300 ease-in-out text-white hover:text-orange-400 group">
-                Read More
-                <FaArrowRight className="transition-transform duration-300 text-white ease-in-out rotate-[45deg] group-hover:rotate-[0deg]" />
-              </p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
       {/* card section */}
 
       <section className="w-full px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
@@ -1105,7 +1152,11 @@ px-4 sm:px-6 md:px-8
 
           {/* CENTER IMAGE */}
 
-          <div data-aos="fade-up" data-aos-duration="3000" className="award-trophy">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="award-trophy"
+          >
             <Image
               alt="award"
               src="/award.png"
@@ -1158,95 +1209,105 @@ px-4 sm:px-6 md:px-8
       <HomeReview />
 
       {/* newsletter section */}
-   
-   <section className='bg-white dark:bg-black px-4 sm:px-6 md:px-8 font-plus-jakarta transition-colors duration-500'>
-  <div className='flex flex-col items-center text-center max-w-4xl mx-auto'>
-    <div className='w-2 h-2 bg-orange-400 rounded-full mb-3'></div>
 
-    <h5 className='text-gray-600 dark:text-white/80 font-medium text-[12px] sm:text-[13px] md:text-[14px] leading-tight mt-1'>
-      OUR RECENT NEWS
-    </h5>
+      <section className="bg-white dark:bg-black px-4 sm:px-6 md:px-8 font-plus-jakarta transition-colors duration-500">
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+          <div className="w-2 h-2 bg-orange-400 rounded-full mb-3"></div>
 
-    <h2 className='text-black dark:text-white font-extrabold text-[28px] sm:text-[36px] md:text-[45px] leading-tight mt-1'>
-      Our latest <br className='hidden sm:block' /> News articles
-    </h2>
-  </div>
-</section>
+          <h5 className="text-gray-600 dark:text-white/80 font-medium text-[12px] sm:text-[13px] md:text-[14px] leading-tight mt-1">
+            OUR RECENT NEWS
+          </h5>
 
-<section className="bg-white dark:bg-black text-black dark:text-white py-16 px-4 transition-colors duration-500">
-  <div className="max-w-6xl mx-auto">
-    
-    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {newsData.map((item) => (
-        <div key={item.id} className="group cursor-pointer">
+          <h2 className="text-black dark:text-white font-extrabold text-[28px] sm:text-[36px] md:text-[45px] leading-tight mt-1">
+            Our latest <br className="hidden sm:block" /> News articles
+          </h2>
+        </div>
+      </section>
 
-          {/* Image Section */}
-          <div className="relative overflow-hidden group/img">
-            <Image
-              src={item.image}
-              alt={item.title}
-              width={500}
-              height={300}
-              className="w-full h-full object-cover"
-            />
+      <section className="bg-white dark:bg-black text-black dark:text-white py-16 px-4 transition-colors duration-500">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {newsData.map((item) => (
+              <div key={item.id} className="group cursor-pointer">
+                {/* Image Section */}
+                <div className="relative overflow-hidden group/img">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={500}
+                    height={300}
+                    className="w-full h-full object-cover"
+                  />
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/50 opacity-0 translate-y-[-20%] group-hover/img:opacity-100 group-hover/img:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"></div>
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/50 opacity-0 translate-y-[-20%] group-hover/img:opacity-100 group-hover/img:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"></div>
 
-            {/* Plus Icon */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="relative w-8 h-8 opacity-0 -translate-y-[120%] group-hover/img:opacity-100 group-hover/img:translate-y-0 transition-all duration-700 delay-100">
-                <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[2px] h-full bg-white"></div>
-                <div className="absolute top-1/2 left-0 -translate-y-1/2 h-[2px] w-full bg-white"></div>
+                  {/* Plus Icon */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="relative w-8 h-8 opacity-0 -translate-y-[120%] group-hover/img:opacity-100 group-hover/img:translate-y-0 transition-all duration-700 delay-100">
+                      <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[2px] h-full bg-white"></div>
+                      <div className="absolute top-1/2 left-0 -translate-y-1/2 h-[2px] w-full bg-white"></div>
+                    </div>
+                  </div>
+
+                  {/* Date Badge */}
+                  <div className="absolute bottom-4 right-4 bg-white text-black text-xs px-4 py-2 font-medium z-10">
+                    {item.date}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="mt-6">
+                  {/* Category */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-[1px] bg-orange-400"></div>
+                    <p className="text-gray-600 dark:text-gray-300 hover:text-orange-400 font-medium text-[14px] transition-colors">
+                      {item.category}
+                    </p>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-[24px] font-extrabold leading-[1.4] text-black dark:text-white">
+                    <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1px] hover:text-orange-400 [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
+                      {item.title}
+                    </span>
+                  </h3>
+
+                  {/* Divider */}
+                  <div className="border-b border-gray-200 dark:border-gray-800 my-6"></div>
+
+                  {/* Read More */}
+                  <div className="group/readmore flex w-fit items-center gap-2 font-medium text-[14px] text-gray-600 dark:text-gray-300 cursor-pointer">
+                    <span className="group-hover/readmore:text-orange-400 transition-colors duration-300">
+                      Read More
+                    </span>
+                    <span className="text-[20px] transition-transform duration-300 group-hover/readmore:-rotate-45 group-hover/readmore:text-orange-400">
+                      <FiArrowDownRight />
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            {/* Date Badge */}
-            <div className="absolute bottom-4 right-4 bg-white text-black text-xs px-4 py-2 font-medium z-10">
-              {item.date}
-            </div>
+            ))}
           </div>
 
-          {/* Content */}
-          <div className="mt-6">
-
-            {/* Category */}
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-8 h-[1px] bg-orange-400"></div>
-              <p className="text-gray-600 dark:text-gray-300 hover:text-orange-400 font-medium text-[14px] transition-colors">
-                {item.category}
-              </p>
-            </div>
-
-            {/* Title */}
-            <h3 className="text-[24px] font-extrabold leading-[1.4] text-black dark:text-white">
-              <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1px] hover:text-orange-400 [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
-                {item.title}
-              </span>
-            </h3>
-
-            {/* Divider */}
-            <div className="border-b border-gray-200 dark:border-gray-800 my-6"></div>
-
-            {/* Read More */}
-            <div className="group/readmore flex w-fit items-center gap-2 font-medium text-[14px] text-gray-600 dark:text-gray-300 cursor-pointer">
-              <span className="group-hover/readmore:text-orange-400 transition-colors duration-300">
-                Read More
-              </span>
-              <span className="text-[20px] transition-transform duration-300 group-hover/readmore:-rotate-45 group-hover/readmore:text-orange-400">
-                <FiArrowDownRight />
-              </span>
-            </div>
+          {/* Button */}
+          <div className="flex justify-end mt-12">
+            {" "}
+            <Link
+              href="/news"
+              className="relative bg-[#F6931D] text-white font-bold py-4 px-10 text-[16px] overflow-hidden transition-all duration-500 cursor-pointer group hover:border-black hover:border-2"
+            >
+              {" "}
+              <span className="absolute left-1/2 top-1/2 w-[160%] h-0 bg-white -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] transition-all duration-500 group-hover:h-[500%] z-0"></span>{" "}
+              {/* Button Text */}{" "}
+              <span className="relative z-10 group-hover:text-orange-400 transition-colors duration-500 ">
+                {" "}
+                View All News{" "}
+              </span>{" "}
+            </Link>{" "}
           </div>
         </div>
-      ))}
-    </div>
-
-    {/* Button */}
-    <div className="flex justify-end mt-12"> <Link href="/news" className="relative bg-[#F6931D] text-white font-bold py-4 px-10 text-[16px] overflow-hidden transition-all duration-500 cursor-pointer group hover:border-black hover:border-2" > <span className="absolute left-1/2 top-1/2 w-[160%] h-0 bg-white -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] transition-all duration-500 group-hover:h-[500%] z-0" ></span> {/* Button Text */} <span className="relative z-10 group-hover:text-orange-400 transition-colors duration-500 "> View All News </span> </Link> </div>
-
-  </div>
-</section>
+      </section>
 
       {/* above footer section */}
 
