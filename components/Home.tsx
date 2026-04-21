@@ -80,6 +80,35 @@ type Slide = {
   href: string;
 };
 
+type WorkProcessStep = {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+};
+
+const workProcessSteps: WorkProcessStep[] = [
+  {
+    id: "01",
+    title: "Clients",
+    description:
+      "25 + Clients CPG Leaders (fortune 500 global entrepreneur clients)",
+    image: "/work-process-1.jpg",
+  },
+  {
+    id: "02",
+    title: "Productivity",
+    description: "10 X Productivity Improvement by automation",
+    image: "/work-process-2.jpg",
+  },
+  {
+    id: "03",
+    title: "Revenue",
+    description: "65 M+$s Revenue bagged from products and service.",
+    image: "/work-process-3.jpg",
+  },
+];
+
 const Home = () => {
   const homeSlide: Slide[] = [
     {
@@ -121,47 +150,52 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleMouseMove = (e: any) => {
+  const handleProjectHover = (e: any) => {
     const rect = e.currentTarget.getBoundingClientRect();
 
-    let xPos = e.clientX - rect.left;
+    const xPos =
+      typeof e.clientX === "number"
+        ? e.clientX - rect.left
+        : rect.width / 2;
 
     setX(xPos);
   };
 
   type NewsItem = {
-    id: number;
-    title: string;
-    category: string;
-    date: string;
-    image: string;
-  };
+  id: number;
+  title: string;
+  category: string;
+  date: string;
+  image: string;
+  slug?: string;
+};
 
-  const newsData: NewsItem[] = [
-    {
-      id: 1,
-      title:
-        "BzAnalytics and CloudQ Forge a Formidable Alliance to Redefine Business Solutions in 2023",
-      category: "Alliance",
-      date: "29 JULY",
-      image: "/newsimage.jpg",
-    },
-    {
-      id: 2,
-      title:
-        "BzAnalytics Achieves Outstanding Recognition: Among Top 5 Companies at Prestigious Entrepreneurship Expo",
-      category: "Achieves",
-      date: "30 NOV",
-      image: "/newsimage2.jpg",
-    },
-    {
-      id: 3,
-      title: "From Vision to Reality: BzAnalytics's Journey from 2020 to 2023",
-      category: "Journey",
-      date: "16 APR",
-      image: "/newsimage3.jpg",
-    },
-  ];
+const newsData: NewsItem[] = [
+  {
+    id: 1,
+    title: "BzAnalytics and CloudQ Forge a Formidable Alliance to Redefine Business Solutions in 2023",
+    category: "Alliance",
+    date: "29 JULY",
+    image: "/newsimage.jpg",
+    slug: "bzanalytics-cloudq-alliance",
+  },
+  {
+    id: 2,
+    title: "BzAnalytics Achieves Outstanding Recognition: Among Top 5 Companies at Prestigious Entrepreneurship Expo",
+    category: "Achieves",
+    date: "30 NOV",
+    image: "/newsimage2.jpg",
+    slug: "bzanalytics-recognition",
+  },
+  {
+    id: 3,
+    title: "From Vision to Reality: BzAnalytics's Journey from 2020 to 2023",
+    category: "Journey",
+    date: "16 APR",
+    image: "/newsimage3.jpg",
+    slug: "bzanalytics-journey",
+  },
+];
   const [startIndex, setStartIndex] = useState(0);
 
   const maxIndex = cards.length - VISIBLE_CARDS;
@@ -685,8 +719,9 @@ px-4 sm:px-6 md:px-8
         <div className=" flex flex-col mt-10 mb-5 hidden md:block">
           <div
             data-aos="fade-up"
-            onMouseMove={handleMouseMove}
-            className="flex justify-between items-center project  border-t border-b py-7.5 dark:border-white border-black group cursor-pointer relative"
+            onMouseMove={handleProjectHover}
+            onMouseEnter={handleProjectHover}
+            className="flex w-full justify-between items-center project  border-t border-b py-7.5 dark:border-white border-black group cursor-pointer relative"
           >
             <div className=" flex justify-center items-center gap-x-10">
               <span className=" text-2xl font-extrabold group-hover:text-primary">
@@ -725,8 +760,9 @@ px-4 sm:px-6 md:px-8
 
           <div
             data-aos="fade-up"
-            onMouseMove={handleMouseMove}
-            className="flex justify-between items-center relative project border-b py-7.5 dark:border-white border-black group cursor-pointer"
+            onMouseMove={handleProjectHover}
+            onMouseEnter={handleProjectHover}
+            className="flex w-full justify-between items-center relative project border-b py-7.5 dark:border-white border-black group cursor-pointer"
           >
             <div className=" flex justify-center items-center gap-x-10">
               <span className=" text-2xl font-extrabold group-hover:text-primary">
@@ -763,8 +799,9 @@ px-4 sm:px-6 md:px-8
 
           <div
             data-aos="fade-up"
-            onMouseMove={handleMouseMove}
-            className="flex relative justify-between items-center group project border-b py-7.5 dark:border-white border-black cursor-pointer"
+            onMouseMove={handleProjectHover}
+            onMouseEnter={handleProjectHover}
+            className="flex w-full relative justify-between items-center group project border-b py-7.5 dark:border-white border-black cursor-pointer"
           >
             <div className=" flex justify-center items-center gap-x-10">
               <span className=" text-2xl font-extrabold group-hover:text-primary">
@@ -786,7 +823,7 @@ px-4 sm:px-6 md:px-8
             {/* project-img */}
             <div
               style={{
-                transform: `translateX(${x - 150}px) translateY(-50%) scale(1) `,
+                transform: `translateX(${x - 150}px) translateY(-50%) `,
               }}
               className="project-img absolute w-84.25 h-55.75 top-12.5   pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
             >
@@ -801,8 +838,9 @@ px-4 sm:px-6 md:px-8
 
           <div
             data-aos="fade-up"
-            onMouseMove={handleMouseMove}
-            className="flex group relative justify-between items-center project border-b py-7.5 dark:border-white border-black cursor-pointer"
+            onMouseMove={handleProjectHover}
+            onMouseEnter={handleProjectHover}
+            className="flex w-full group relative justify-between items-center project border-b py-7.5 dark:border-white border-black cursor-pointer"
           >
             <div className=" flex justify-center items-center gap-x-10">
               <span className=" text-2xl font-extrabold group-hover:text-primary">
@@ -824,12 +862,12 @@ px-4 sm:px-6 md:px-8
             {/* project-img */}
             <div
               style={{
-                transform: `translateX(${x - 150}px) translateY(-50%) scale(1) `,
+                transform: `translateX(${x - 150}px) translateY(-50%) `,
               }}
-              className="project-img absolute w-84.25 h-55.75 top-12.5   pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
+              className="project-img absolute w-84.25 h-55.75 top-12.5 pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
             >
               <img
-                className="w-full h-full object-cover relative transition-all duration-300 ease-in-out dark:mix-blend-normal mix-blend-luminosity"
+                className="w-full h-full object-cover relative transition-all duration-300 ease-in-out mix-blend-normal"
                 src="/turf.jpg"
                 alt="Turf"
                 loading="lazy"
@@ -1205,90 +1243,207 @@ px-4 sm:px-6 md:px-8
         </div>
       </section>
 
+      <section className="relative overflow-hidden pt-0 pb-16 md:pt-1 md:pb-20 lg:pt-3 lg:pb-24">
+        <div
+          className="absolute inset-0"
+          style={{
+            position: "absolute",
+            opacity: 0.2,
+            width: "100%",
+            height: "100%",
+            backgroundImage: "url('/feature-1.jpg')",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        />
+        <div className="absolute inset-0 bg-black/25" />
+
+        <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div
+            className="mx-auto max-w-[760px] -mt-2 text-center md:-mt-3 lg:-mt-4"
+            style={{ transform: "translateY(5px)" }}
+          >
+            <p className="work-process-kicker">
+              Simple Work Process
+            </p>
+            <h2
+              style={{
+                fontSize: "45px",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontWeight: 800,
+                color: "#ffffff",
+                margin: 0,
+                padding: 0,
+                lineHeight: 1.2,
+                letterSpacing: "normal",
+                textAlign: "center",
+              }}
+            >
+              Check how we works in
+              <br />
+              3 easy steps
+            </h2>
+          </div>
+
+          <div className="relative mt-14">
+            <div className="absolute left-4 right-4 top-[112px] hidden h-[2px] bg-[#f5900d] md:block">
+              <span className="absolute -left-2 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#f5900d]" />
+              <span className="absolute -right-2 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-[#f5900d]" />
+            </div>
+
+            <div className="work-process-grid relative grid gap-10 md:grid-cols-3 md:gap-8 lg:gap-12">
+              {workProcessSteps.map((step) => (
+                <div key={step.id} className="work-process-step text-center">
+                  <div className="relative mx-auto mb-7 h-44 w-44 rounded-full border-[3px] border-[#f5900d] bg-black p-1.5 sm:h-52 sm:w-52">
+                    <div className="work-process-one__item__thumb relative h-full w-full overflow-hidden rounded-full bg-black">
+                      <Image
+                        src={step.image}
+                        alt={step.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <span className="absolute right-[-6px] top-[-6px] grid h-14 w-14 place-items-center rounded-full bg-[#f5900d] text-3xl font-extrabold text-white sm:h-16 sm:w-16 sm:text-4xl">
+                      {step.id}
+                    </span>
+                  </div>
+
+                  <h3
+                    style={{
+                      fontSize: "24px",
+                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontWeight: 900,
+                      color: "#ffffff",
+                      WebkitTextStroke: "0.35px #ffffff",
+                      margin: "23px 0 14px",
+                      padding: 0,
+                      lineHeight: 1.2,
+                      letterSpacing: "0.5px",
+                      textAlign: "center",
+                      visibility: "visible",
+                      animationName: "fadeInUp",
+                      animationDelay: "200ms",
+                    }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    className="mx-auto max-w-[390px]"
+                    style={{
+                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontSize: "16px",
+                      fontWeight: 800,
+                      lineHeight: "30px",
+                      letterSpacing: "0.5px",
+                      color: "#ffffff",
+                      marginTop: 0,
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* clients tesinominal */}
       <HomeReview />
 
       {/* newsletter section */}
+      <section className='bg-white dark:bg-black px-4 sm:px-6 md:px-8 font-plus-jakarta transition-colors duration-500'>
+  <div className='flex flex-col items-center text-center max-w-4xl mx-auto'>
+    <div className='w-2 h-2 bg-orange-400 rounded-full mb-3'></div>
 
-      <section className="bg-white dark:bg-black px-4 sm:px-6 md:px-8 font-plus-jakarta transition-colors duration-500">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          <div className="w-2 h-2 bg-orange-400 rounded-full mb-3"></div>
+    <h5 className='text-gray-600 dark:text-white/80 font-medium text-[12px] sm:text-[13px] md:text-[14px] leading-tight mt-1'>
+      OUR RECENT NEWS
+    </h5>
 
-          <h5 className="text-gray-600 dark:text-white/80 font-medium text-[12px] sm:text-[13px] md:text-[14px] leading-tight mt-1">
-            OUR RECENT NEWS
-          </h5>
+    <h2 className='text-black dark:text-white font-extrabold text-[28px] sm:text-[36px] md:text-[45px] leading-tight mt-1'>
+      Our latest <br className='hidden sm:block' /> News articles
+    </h2>
+  </div>
+</section>
 
-          <h2 className="text-black dark:text-white font-extrabold text-[28px] sm:text-[36px] md:text-[45px] leading-tight mt-1">
-            Our latest <br className="hidden sm:block" /> News articles
-          </h2>
-        </div>
-      </section>
+<section  className="bg-white dark:bg-black text-black dark:text-white py-16 px-4 transition-colors duration-500">
+  <div className="max-w-6xl mx-auto">
+    
+    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+{newsData.map((item,index) => (
+  <Link data-aos="fade-right" data-aos-delay={index * 150}   // ✅ stagger effect
+    data-aos-duration="500"
+    data-aos-once="true"
+ key={item.id} href={`/news/${item.slug}`} className="block">
+    <div className="group cursor-pointer">
 
-      <section className="bg-white dark:bg-black text-black dark:text-white py-16 px-4 transition-colors duration-500">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {newsData.map((item) => (
-              <div key={item.id} className="group cursor-pointer">
-                {/* Image Section */}
-                <div className="relative overflow-hidden group/img">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={500}
-                    height={300}
-                    className="w-full h-full object-cover"
-                  />
+      {/* Image Section */}
+      <div className="relative overflow-hidden group/img">
+        <Image
+          src={item.image}
+          alt={item.title}
+          width={500}
+          height={300}
+          className="w-full h-full object-cover"
+        />
 
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 translate-y-[-20%] group-hover/img:opacity-100 group-hover/img:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"></div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50 opacity-0 translate-y-[-20%] group-hover/img:opacity-100 group-hover/img:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"></div>
 
-                  {/* Plus Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className="relative w-8 h-8 opacity-0 -translate-y-[120%] group-hover/img:opacity-100 group-hover/img:translate-y-0 transition-all duration-700 delay-100">
-                      <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[2px] h-full bg-white"></div>
-                      <div className="absolute top-1/2 left-0 -translate-y-1/2 h-[2px] w-full bg-white"></div>
-                    </div>
-                  </div>
-
-                  {/* Date Badge */}
-                  <div className="absolute bottom-4 right-4 bg-white text-black text-xs px-4 py-2 font-medium z-10">
-                    {item.date}
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="mt-6">
-                  {/* Category */}
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-[1px] bg-orange-400"></div>
-                    <p className="text-gray-600 dark:text-gray-300 hover:text-orange-400 font-medium text-[14px] transition-colors">
-                      {item.category}
-                    </p>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-[24px] font-extrabold leading-[1.4] text-black dark:text-white">
-                    <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1px] hover:text-orange-400 [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
-                      {item.title}
-                    </span>
-                  </h3>
-
-                  {/* Divider */}
-                  <div className="border-b border-gray-200 dark:border-gray-800 my-6"></div>
-
-                  {/* Read More */}
-                  <div className="group/readmore flex w-fit items-center gap-2 font-medium text-[14px] text-gray-600 dark:text-gray-300 cursor-pointer">
-                    <span className="group-hover/readmore:text-orange-400 transition-colors duration-300">
-                      Read More
-                    </span>
-                    <span className="text-[20px] transition-transform duration-300 group-hover/readmore:-rotate-45 group-hover/readmore:text-orange-400">
-                      <FiArrowDownRight />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
+        {/* Plus Icon */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="relative w-8 h-8 opacity-0 -translate-y-[120%] group-hover/img:opacity-100 group-hover/img:translate-y-0 transition-all duration-700 delay-100">
+            <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[2px] h-full bg-white"></div>
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 h-[2px] w-full bg-white"></div>
           </div>
+        </div>
+
+        {/* Date Badge */}
+        <div className="absolute bottom-4 right-4 bg-white text-black text-xs px-4 py-2 font-medium z-10">
+          {item.date}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="mt-6">
+
+        {/* Category */}
+        <div className="flex items-center gap-3 mb-3">
+          <div className="w-8 h-[1px] bg-orange-400"></div>
+          <p className="text-gray-600 dark:text-gray-300 hover:text-orange-400 font-medium text-[14px] transition-colors">
+            {item.category}
+          </p>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-[24px] font-extrabold leading-[1.4] text-black dark:text-white">
+          <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1px] hover:text-orange-400 [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
+            {item.title}
+          </span>
+        </h3>
+
+        {/* Divider */}
+        <div className="border-b border-gray-200 dark:border-gray-800 my-6"></div>
+
+        {/* Read More */}
+        <div className="group/readmore flex w-fit items-center gap-2 font-medium text-[14px] text-gray-600 dark:text-gray-300 cursor-pointer">
+          <span className="group-hover/readmore:text-orange-400 transition-colors duration-300">
+            Read More
+          </span>
+          <span className="text-[20px] transition-transform duration-300 group-hover/readmore:-rotate-45 group-hover/readmore:text-orange-400">
+            <FiArrowDownRight />
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </Link>
+))}    </div>
+
+    {/* Button */}
+    <div className="flex justify-end mt-12"> <Link href="/news" className="relative bg-[#F6931D] text-white font-bold py-4 px-10 text-[16px] overflow-hidden transition-all duration-500 cursor-pointer group hover:border-black hover:border-2" > <span className="absolute left-1/2 top-1/2 w-[160%] h-0 bg-white -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] transition-all duration-500 group-hover:h-[500%] z-0" ></span> {/* Button Text */} <span className="relative z-10 group-hover:text-orange-400 transition-colors duration-500 "> View All News </span> </Link> </div>
 
           {/* Button */}
           <div className="flex justify-end mt-12">
@@ -1316,8 +1471,23 @@ px-4 sm:px-6 md:px-8
         style={{ padding: "120px 0px" }}
       >
         <div
-          className="cta-bg w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/cta-bg-2.jpg')" }}
+          className="cta-bg"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            width: "100%",
+            height: "100%",
+            backgroundImage: "url('/cta-bg-2.jpg')",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            opacity: 0.2,
+            fontSize: "16px",
+            letterSpacing: "0.5px",
+          }}
         ></div>
 
         <div
