@@ -91,7 +91,14 @@ const SuccessStories = () => {
 
  
 <div className="mt-4 md:mt-6">
-  <button className="group/btn relative overflow-hidden border-2 border-black/10 dark:border-white bg-black text-white px-5 py-2.5 md:px-6 md:py-3 text-[10px] sm:text-xs font-extrabold cursor-pointer transition-all duration-300 uppercase tracking-wider hover:text-orange-500">
+  <button
+    className="group/btn relative overflow-hidden border-2 border-black/10 dark:border-white bg-black px-5 py-2.5 text-white transition-all duration-300 hover:text-orange-500 md:px-6 md:py-3 cursor-pointer uppercase tracking-wider"
+    style={{
+      fontSize: "16px",
+      fontWeight: 800,
+      fontFamily: "'Plus Jakarta Sans', sans-serif",
+    }}
+  >
     
     <span className="absolute left-1/2 top-1/2 w-[160%] h-0 bg-white -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] transition-all duration-500 ease-in-out group-hover/btn:h-[500%] z-0"></span>
     

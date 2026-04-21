@@ -1255,7 +1255,15 @@ px-4 sm:px-6 md:px-8
                         className="object-cover"
                       />
                     </div>
-                    <span className="absolute right-[-6px] top-[-6px] grid h-14 w-14 place-items-center rounded-full bg-[#f5900d] text-3xl font-extrabold text-white sm:h-16 sm:w-16 sm:text-4xl">
+                    <span
+                      className="absolute right-[-6px] top-[-6px] grid h-14 w-14 place-items-center rounded-full bg-[#f5900d] text-white transition-transform duration-300 ease-out hover:scale-90 sm:h-16 sm:w-16"
+                      style={{
+                        fontFamily: "'Plus Jakarta Sans', sans-serif",
+                        fontSize: "20px",
+                        fontWeight: 800,
+                        lineHeight: 1,
+                      }}
+                    >
                       {step.id}
                     </span>
                   </div>
