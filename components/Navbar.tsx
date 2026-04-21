@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -33,27 +33,37 @@ import Link from "next/link";
 import { menuItems } from "@/lib/menu";
 import Image from "next/image";
 import LanguageSelect from "./LanguageDrop";
-
-
-
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const menuItems = [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Success Stories", href: "/success-stories" },
+    { label: "Success Stories", href: "/portfolio" },
     { label: "Blogs", href: "/blogs" },
     { label: "Careers", href: "/careers" },
     { label: "Contact Us", href: "/contact" },
   ];
 
- 
-
   const [openLang, setOpenLang] = useState(false);
-  
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname=usePathname()
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="w-full  bg-[#101010] sticky top-0 z-50">
+  <nav
+  className={`w-full sticky top-0 z-50 transition-all duration-300 ${
+    isScrolled ? "shadow-lg bg-black" : "bg-black"
+  }`}
+>
       <div className=" flex items-center justify-between px-4 py-4">
         <div className=" flex items-center justify-between w-full ">
           {/* mobile menu */}
@@ -74,7 +84,7 @@ const Navbar = () => {
                 <Link
                   key={index}
                   href={item.href}
-                  className={` text-white text-[14px] font-semibold flex items-center gap-1 hover:text-primary transition `}
+                  className={`${pathname===item.href ? "text-primary":"text-white"} text-[14px] font-semibold flex items-center gap-1 hover:text-primary transition-all `}
                 >
                   <div
                     className="relative
@@ -96,7 +106,7 @@ after:bg-current"
             </nav>
 
             <div className="md:ms-100 sm:ms-45  lg:m-0">
-            <LanguageSelect/>
+              <LanguageSelect />
             </div>
           </div>
 
@@ -108,7 +118,7 @@ after:bg-current"
             >
               <span
                 className="absolute top-1/2 left-1/2 w-[400%] h-[400%] bg-white 
-            -translate-x-1/2 -translate-y-1/2 rotate-45 
+            -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] 
             scale-0 group-hover:scale-110 
             transition-transform duration-500 ease-out"
               ></span>
@@ -159,9 +169,9 @@ after:bg-current"
                       <button className="p-2 bg-primary rounded-full text-white">
                         <FaEnvelope />{" "}
                       </button>
-                      <h5 className="text-white font-semibold ">
+                      <Link href={"mailto:hello@bzanalytics.ai"} className="text-white font-semibold ">
                         hello@bzanalytics.ai
-                      </h5>
+                      </Link>
                     </div>
                   </div>
 
