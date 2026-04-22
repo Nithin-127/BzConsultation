@@ -438,29 +438,29 @@ const Home = () => {
             </button>
           )}
 
-          {/* VIEWPORT */}
-          <div className="overflow-hidden pr-[120px]">
-            <div
-              className="flex gap-6 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-              style={{
-                transform: `translateX(-${startIndex * (CARD_WIDTH + GAP)}px)`,
-              }}
-            >
-              {cards.map((card, index) => (
-                <div
-                  key={index}
-                  className="group/card relative w-[380px] h-[250px] flex-shrink-0 rounded-[10px] overflow-hidden cursor-pointer
+        {/* VIEWPORT */}
+        <div className="overflow-hidden pr-[120px]">
+          <div
+            className="flex gap-6 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            style={{
+              transform: `translateX(-${startIndex * (CARD_WIDTH + GAP)}px)`
+            }}
+          >
+            {cards.map((card, index) => (
+              <div
+                key={index}
+                className="group/card relative w-[380px] h-[250px] flex-shrink-0 rounded-[10px] overflow-hidden cursor-pointer
            transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
            group-hover:translate-x-3 hover:!translate-x-0
            hover:scale-110 hover:z-20"
-                >
-                  {/* Image */}
-                  <Image
-                    src={card.img}
-                    alt={card.title}
-                    fill
-                    className="object-cover "
-                  />
+              >
+                {/* Image */}
+                <Image
+                  src={card.img}
+                  alt={card.title}
+                  fill
+                  className="object-cover "
+                />
 
                   {/* Overlay */}
                   <div className="absolute inset-0  transition-all duration-500" />
@@ -1188,11 +1188,7 @@ px-4 sm:px-6 md:px-8
 
           {/* CENTER IMAGE */}
 
-          <div
-            data-aos="fade-up"
-            data-aos-duration="3000"
-            className="award-trophy mt-20"
-          >
+          <div data-aos="fade-up" data-aos-duration="3000" className="award-trophy">
             <Image
               alt="award"
               src="/award.png"
@@ -1439,24 +1435,11 @@ px-4 sm:px-6 md:px-8
             ))}{" "}
           </div>
 
-          {/* Button */}
-          <div className="flex justify-end mt-12">
-            {" "}
-            <Link
-              href="/news"
-              className="relative bg-[#F6931D] text-white font-bold py-4 px-10 text-[16px] overflow-hidden transition-all duration-500 cursor-pointer group hover:border-black hover:border-2"
-            >
-              {" "}
-              <span className="absolute left-1/2 top-1/2 w-[160%] h-0 bg-white -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] transition-all duration-500 group-hover:h-[500%] z-0"></span>{" "}
-              {/* Button Text */}{" "}
-              <span className="relative z-10 group-hover:text-orange-400 transition-colors duration-500 ">
-                {" "}
-                View All News{" "}
-              </span>{" "}
-            </Link>{" "}
-          </div>
-        </div>
-      </section>
+    {/* Button */}
+    <div className="flex justify-end mt-12"> <Link href="/news" className="relative bg-[#F6931D] text-white font-bold py-4 px-10 text-[16px] overflow-hidden transition-all duration-500 cursor-pointer group hover:border-black hover:border-2" > <span className="absolute left-1/2 top-1/2 w-[160%] h-0 bg-white -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] transition-all duration-500 group-hover:h-[500%] z-0" ></span> {/* Button Text */} <span className="relative z-10 group-hover:text-orange-400 transition-colors duration-500 "> View All News </span> </Link> </div>
+
+  </div>
+</section>
 
       {/* above footer section */}
 
