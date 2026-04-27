@@ -1285,7 +1285,7 @@ px-4 sm:px-6 md:px-8
 
             <div className="work-process-grid relative grid gap-10 md:grid-cols-3 md:gap-8 lg:gap-12">
               {workProcessSteps.map((step) => (
-                <div key={step.id} className="work-process-step text-center">
+                <div key={step.id} className="work-process-step group text-center">
                   <div className="relative mx-auto mb-7 h-44 w-44 rounded-full border-[3px] border-[#f5900d] bg-black p-1.5 sm:h-52 sm:w-52">
                     <div className="work-process-one__item__thumb relative h-full w-full overflow-hidden rounded-full bg-black">
                       <Image
@@ -1295,7 +1295,17 @@ px-4 sm:px-6 md:px-8
                         className="object-cover"
                       />
                     </div>
-                    <span className="absolute right-[-6px] top-[-6px] grid h-14 w-14 place-items-center rounded-full bg-[#f5900d] text-3xl font-extrabold text-white sm:h-16 sm:w-16 sm:text-4xl">
+                    <span
+                      className="work-process-step-badge absolute right-[-6px] top-[-6px] grid h-14 w-14 scale-100 place-items-center rounded-full bg-[#f5900d] transform-gpu transition-transform duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [will-change:transform] group-hover:scale-[0.92] group-focus-within:scale-[0.92] sm:h-16 sm:w-16"
+                      style={{
+                        fontFamily:
+                          "var(--ogency-font, 'Plus Jakarta Sans', sans-serif)",
+                        fontSize: "20px",
+                        fontWeight: 800,
+                        lineHeight: 0.8,
+                        color: "var(--ogency-white, #ffffff)",
+                      }}
+                    >
                       {step.id}
                     </span>
                   </div>
@@ -1322,14 +1332,15 @@ px-4 sm:px-6 md:px-8
                   <p
                     className="mx-auto max-w-[390px]"
                     style={{
-                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontFamily:
+                        "var(--ogency-font, 'Plus Jakarta Sans', sans-serif)",
                       fontSize: "16px",
-                      fontWeight: 800,
+                      fontWeight: 500,
                       lineHeight: "30px",
                       letterSpacing: "0.5px",
-                      color: "#ffffff",
+                      color: "var(--ogency-white, #ffffff)",
                       marginTop: 0,
-                      marginBottom: "1rem",
+                      marginBottom: 0,
                     }}
                   >
                     {step.description}
