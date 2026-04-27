@@ -127,22 +127,6 @@
 }
 
 
-@layer components {
-  .project h1 {
-    @apply relative;
-  }
-
-  .project h1::after {
-    content: "";
-    @apply block absolute left-0 bottom-0 h-[1.5px] w-0 bg-black dark:bg-white transition-all duration-300;
-  }
-
-  .project:hover h1::after {
-
-    @apply w-full;
-
-  }
-
   .work-process-kicker {
     font-size: 14px;
     font-family: "Plus Jakarta Sans", sans-serif;
@@ -212,7 +196,7 @@
       justify-self: stretch;
     }
   }
-}
+
 
 
 
@@ -440,3 +424,22 @@ Input {
     height: 100%;
     opacity:0.2;
   }
+
+
+.number {
+  counter-reset: my-counter;
+}
+
+.number .num {
+  display: block;
+  font-size: 80px;     
+  font-weight: 800;
+  color: transparent;         
+  -webkit-text-stroke: 1px white; 
+  margin: auto;
+}
+
+.number .num::before {
+  counter-increment: my-counter;
+  content: counter(my-counter, decimal-leading-zero);
+}

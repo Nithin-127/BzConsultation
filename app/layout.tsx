@@ -13,7 +13,7 @@ import Navbar from "@/components/Navbar";
 import WhatsAppBtn from "@/components/WhatsAppBtn";
 import ProgressBar from "@/components/ProgressBar/ProgressBar";
 import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
-import "aos/dist/aos.css";
+
 import AnimationProvider from "@/components/AnimationProvider";
 
 const plusJakartaSans = Plus_Jakarta_Sans({

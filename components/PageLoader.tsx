@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import "animate.css"
+
 
 export default function PageLoader({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);

@@ -109,7 +109,7 @@ const workProcessSteps: WorkProcessStep[] = [
   },
 ];
 
-const Home = () => {
+
   const homeSlide: Slide[] = [
     {
       img: "/image1.jpeg",
@@ -136,6 +136,9 @@ const Home = () => {
       href: "/contact",
     },
   ];
+
+const Home = () => {
+
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [x, setX] = useState(0);
@@ -211,14 +214,14 @@ const Home = () => {
   return (
     <>
       {/* banner section */}
-      <section className="">
+      <section className="w-full h-screen">
         <div className="w-full min-h-[90vh] relative">
           <div className="pt-[80px]">
             {" "}
             {/* adjust based on navbar height */}
             <div
               style={{ backgroundImage: `url(${homeSlide[currentIndex].img})` }}
-              className="w-full h-[calc(100vh-80px)] bg-center bg-no-repeat bg-cover absolute inset-0"
+              className="w-full h-full object-contain"
             ></div>
           </div>
 
@@ -438,29 +441,29 @@ const Home = () => {
             </button>
           )}
 
-        {/* VIEWPORT */}
-        <div className="overflow-hidden pr-[120px]">
-          <div
-            className="flex gap-6 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-            style={{
-              transform: `translateX(-${startIndex * (CARD_WIDTH + GAP)}px)`
-            }}
-          >
-            {cards.map((card, index) => (
-              <div
-                key={index}
-                className="group/card relative w-[380px] h-[250px] flex-shrink-0 rounded-[10px] overflow-hidden cursor-pointer
+          {/* VIEWPORT */}
+          <div className="overflow-hidden pr-[120px]">
+            <div
+              className="flex gap-6 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              style={{
+                transform: `translateX(-${startIndex * (CARD_WIDTH + GAP)}px)`,
+              }}
+            >
+              {cards.map((card, index) => (
+                <div
+                  key={index}
+                  className="group/card relative w-[380px] h-[250px] flex-shrink-0 rounded-[10px] overflow-hidden cursor-pointer
            transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
            group-hover:translate-x-3 hover:!translate-x-0
            hover:scale-110 hover:z-20"
-              >
-                {/* Image */}
-                <Image
-                  src={card.img}
-                  alt={card.title}
-                  fill
-                  className="object-cover "
-                />
+                >
+                  {/* Image */}
+                  <Image
+                    src={card.img}
+                    alt={card.title}
+                    fill
+                    className="object-cover "
+                  />
 
                   {/* Overlay */}
                   <div className="absolute inset-0  transition-all duration-500" />
@@ -712,22 +715,22 @@ px-4 sm:px-6 md:px-8
         </div>
 
         {/* project section */}
-        <div className=" flex flex-col mt-10 mb-5 hidden md:block">
+        <div className=" flex flex-col mt-10 mb-5 hidden md:block number">
           <div
             data-aos="fade-up"
             onMouseMove={handleProjectHover}
             onMouseEnter={handleProjectHover}
             className="flex w-full justify-between items-center project  border-t border-b py-7.5 dark:border-white border-black group cursor-pointer relative"
           >
-            <div className=" flex justify-center items-center gap-x-10">
-              <span className=" text-2xl font-extrabold group-hover:text-primary">
-                01
+            <div className=" flex justify-center items-center gap-x-10 ">
+              <span className=" text-2xl font-extrabold group-hover:text-primary num [-webkit-text-stroke:1px_black]">
+                
               </span>
-              <h2 className=" text-2xl font-extrabold relative">
-                <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1px] hover:text-orange-400 [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
+              <h1 className=" text-2xl font-extrabold relative">
+                <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1.5px]  [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
                   Digital Twin of Dubai
                 </span>
-              </h2>
+              </h1>
             </div>
             <div className="">
               <button
@@ -762,11 +765,15 @@ px-4 sm:px-6 md:px-8
             onMouseEnter={handleProjectHover}
             className="flex w-full justify-between items-center relative project border-b py-7.5 dark:border-white border-black group cursor-pointer"
           >
-            <div className=" flex justify-center items-center gap-x-10">
-              <span className=" text-2xl font-extrabold group-hover:text-primary">
-                02
+            <div className=" flex justify-center items-center gap-x-10 ">
+              <span className=" text-2xl font-extrabold group-hover:text-primary num ">
+                
               </span>
-              <h1 className=" text-2xl font-extrabold">BzNFTMart</h1>
+              <h1 className=" text-2xl font-extrabold">
+                <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1.5px]  [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
+                  BzNFTMart
+                </span>
+              </h1>
             </div>
             <div className="">
               <button
@@ -802,10 +809,14 @@ px-4 sm:px-6 md:px-8
             className="flex w-full relative justify-between items-center group project border-b py-7.5 dark:border-white border-black cursor-pointer"
           >
             <div className=" flex justify-center items-center gap-x-10">
-              <span className=" text-2xl font-extrabold group-hover:text-primary">
-                03
+              <span className=" text-2xl font-extrabold group-hover:text-primary num">
+                
               </span>
-              <h1 className=" text-2xl font-extrabold">AI Medical Imaging</h1>
+              <h1 className=" text-2xl font-extrabold">
+                <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1.5px]  [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
+                  AI Medical Imaging
+                </span>
+              </h1>
             </div>
             <div className="">
               <button
@@ -838,13 +849,17 @@ px-4 sm:px-6 md:px-8
             data-aos="fade-up"
             onMouseMove={handleProjectHover}
             onMouseEnter={handleProjectHover}
-            className="flex w-full group relative justify-between items-center project border-b py-7.5 dark:border-white border-black cursor-pointer"
+            className="flex w-full group relative justify-between items-center project border-b py-7.5 dark:border-white border-[#1a1a1a] cursor-pointer"
           >
             <div className=" flex justify-center items-center gap-x-10">
-              <span className=" text-2xl font-extrabold group-hover:text-primary">
-                04
+              <span className=" text-2xl font-extrabold group-hover:text-primary num">
+                
               </span>
-              <h1 className=" text-2xl font-extrabold">AI Sustainability</h1>
+              <h1 className=" text-2xl font-extrabold">
+                <span className="inline bg-gradient-to-r from-current to-current bg-no-repeat bg-[length:0%_1px] bg-[position:0_100%] transition-all duration-500 group-hover:bg-[length:100%_1.5px]  [box-decoration-break:clone] [-webkit-box-decoration-break:clone] pb-1 cursor-pointer">
+                  AI Sustainability
+                </span>
+              </h1>
             </div>
             <div className="">
               <button
@@ -862,7 +877,7 @@ px-4 sm:px-6 md:px-8
               style={{
                 transform: `translateX(${x - 150}px) translateY(-50%) `,
               }}
-              className="project-img absolute w-84.25 h-55.75 top-12.5 pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
+              className="project-img absolute w-84.25 h-55.75 top-12.5   pointer-events-none overflow-hidden opacity-0 transform scale-[0.8] transition-all duration-500 ease-in-out z-0 group-hover:opacity-100 group-hover:-z-10 group-hover:scale-100 group-hover:rotate-[5deg]"
             >
               <img
                 className="w-full h-full object-cover relative transition-all duration-300 ease-in-out mix-blend-normal"
@@ -1003,7 +1018,7 @@ px-4 sm:px-6 md:px-8
       {/* achivemnts section */}
       <section
         className="w-full relative mx-auto max-w-7xl bg-[#eaeaea] dark:bg-[#101010]
-  py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-12 min-h-screen overflow-hidden"
+  py-16 sm:py-20 md:py-24 lg:py-40 px-4 sm:px-6 lg:px-12 min-h-screen overflow-hidden"
       >
         {/* Background */}
         <div className="absolute inset-0 flex items-start justify-center">
@@ -1188,7 +1203,11 @@ px-4 sm:px-6 md:px-8
 
           {/* CENTER IMAGE */}
 
-          <div data-aos="fade-up" data-aos-duration="3000" className="award-trophy">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            className="award-trophy mt-16"
+          >
             <Image
               alt="award"
               src="/award.png"
@@ -1435,11 +1454,24 @@ px-4 sm:px-6 md:px-8
             ))}{" "}
           </div>
 
-    {/* Button */}
-    <div className="flex justify-end mt-12"> <Link href="/news" className="relative bg-[#F6931D] text-white font-bold py-4 px-10 text-[16px] overflow-hidden transition-all duration-500 cursor-pointer group hover:border-black hover:border-2" > <span className="absolute left-1/2 top-1/2 w-[160%] h-0 bg-white -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] transition-all duration-500 group-hover:h-[500%] z-0" ></span> {/* Button Text */} <span className="relative z-10 group-hover:text-orange-400 transition-colors duration-500 "> View All News </span> </Link> </div>
-
-  </div>
-</section>
+          {/* Button */}
+          <div className="flex justify-end mt-12">
+            {" "}
+            <Link
+              href="/news"
+              className="relative bg-[#F6931D] text-white font-bold py-4 px-10 text-[16px] overflow-hidden transition-all duration-500 cursor-pointer group hover:border-black hover:border-2"
+            >
+              {" "}
+              <span className="absolute left-1/2 top-1/2 w-[160%] h-0 bg-white -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] transition-all duration-500 group-hover:h-[500%] z-0"></span>{" "}
+              {/* Button Text */}{" "}
+              <span className="relative z-10 group-hover:text-orange-400 transition-colors duration-500 ">
+                {" "}
+                View All News{" "}
+              </span>{" "}
+            </Link>{" "}
+          </div>
+        </div>
+      </section>
 
       {/* above footer section */}
 
