@@ -81,6 +81,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --stroke-color: black;
 }
 
 .dark {
@@ -115,6 +116,7 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --stroke-color: white;
 }
 
 @layer base {
@@ -149,7 +151,6 @@
     @apply w-full;
 
   }
-
   .work-process-kicker {
     font-size: 14px;
     font-family: "Plus Jakarta Sans", sans-serif;
@@ -214,12 +215,13 @@
       grid-template-columns: 1fr !important;
     }
 
-    .work-process-grid .work-process-step {
+  .work-process-grid .work-process-step {
       grid-column: auto !important;
       justify-self: stretch;
     }
   }
 }
+
 
 .consultant {
   position: relative;
@@ -443,3 +445,32 @@ Input {
     height: 100%;
     opacity:0.2;
   }
+
+
+.number {
+  counter-reset: my-counter;
+}
+
+.number .num {
+  display: block;
+  font-size: 80px;
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--stroke-color);
+  margin: auto;
+  transition: all 0.5s ease;
+  
+}
+
+.project:hover .num{
+  color:var(--primary);
+  -webkit-text-stroke: 1px var(--primary);
+
+}
+
+
+
+.number .num::before {
+  counter-increment: my-counter;
+  content: counter(my-counter, decimal-leading-zero);
+}
